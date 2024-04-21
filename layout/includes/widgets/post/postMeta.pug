@@ -40,6 +40,9 @@
             if theme.post.meta.pv
                 a.post-meta-pv(href=url_for(page.path), title=_p('post.pv'))
                     i.post-meta-icon.solitude.st-fire-fill
+                    if theme.busuanzi
+                        span#busuanzi_page_pv
+                            i.solitude.st-loading-line
                     if theme.comment.use && theme.comment.pv
                         case theme.comment.use[0]
                             when "Twikoo"
@@ -55,14 +58,7 @@
                             when 'Artalk'
                                 span#ArtalkPV
                                     i.solitude.st-loading-line
-                    else
-                        if theme.busuanzi
-                            if theme.busuanzi_use === 0
-                                span#busuanzi_value_page_pv
-                                    i.solitude.st-loading-line
-                            else
-                                span#busuanzi_page_pv
-                                    i.solitude.st-loading-line
+
             if theme.post.meta.comment && page.comment && theme.comment.count && theme.comment.use
                 span.post-meta-commentcount(title=_p('post.comment'), onclick="sco.scrollTo('post-comment')")
                     i.solitude.st-chat-fill
