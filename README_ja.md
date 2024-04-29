@@ -8,7 +8,7 @@
 
 遅延読み込み、PWA、ラテックス、および複数のコメントシステムをサポートするエレガントなHexoテーマ。
 
-テーマは、 [@张洪Heo](https://github.com/zhheo) 著者の完全な権限、デザイン!
+テーマデザインは [@张洪Heo](https://github.comzhheo) によって完全にライセンスされています。
 
 ![npm package](https://img.shields.io/npm/v/hexo-theme-solitude?logo=npm)
 ![release](https://img.shields.io/github/package-json/v/valor-x/hexo-theme-solitude/master?color=%231ab1ad&label=release)
@@ -38,7 +38,7 @@
 [![gitee](https://img.shields.io/badge/Gitee-red?logo=gitee)](https://gitee.com/nsjjd_w/hexo-theme-solitude)
 [![gitlab](https://img.shields.io/badge/GitLab-blue?logo=gitlab)](https://gitlab.com/efu/hexo-theme-solitude)
 
-[プレビュー](https://www.efu.me/) 丨  [ドキュメンテーション](https://solitude-docs.efu.me/)
+[プレビュー](https://www.efu.me/) 丨  [ドキュメンテーション](https://docs.efu.me/)
 
 </div>
 
@@ -73,7 +73,7 @@
       theme: solitude
       ```
 
-詳しくは [Docs](https://solitude-docs.efu.me) をご覧ください。
+詳しくは [Docs](https://docs.efu.me) をご覧ください。
 
 ## スポンサー
 

@@ -29,7 +29,7 @@ if $about
 
 @import "other"
 
-@import "douban"
+@import "message"
 
 #page h1.page-title
   display inline
@@ -65,3 +65,7 @@ if $about
   .needEndHide.hide
     bottom -200px !important
     opacity 0
+
++maxWidth768()
+  .needEndHide
+    display none!important

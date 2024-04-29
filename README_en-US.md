@@ -8,7 +8,7 @@
 
    An elegant Hexo theme that supports lazy loading, PWA, Latex, and multiple comment systems.
 
-   Theme is fully licensed and designed by the author of [@张洪Heo](https://github.com/zhheo)!
+   Theme design is fully licensed by [@张洪Heo](https://github.com/zhheo).
   
 ![npm package](https://img.shields.io/npm/v/hexo-theme-solitude?color=blue&logo=npm)
 ![release](https://img.shields.io/github/package-json/v/valor-x/hexo-theme-solitude/master?color=%231ab1ad&label=release)
@@ -38,7 +38,7 @@
 [![gitee](https://img.shields.io/badge/Gitee-red?logo=gitee)](https://gitee.com/nsjjd_w/hexo-theme-solitude)
 [![gitlab](https://img.shields.io/badge/GitLab-blue?logo=gitlab)](https://gitlab.com/efu/hexo-theme-solitude)
 
-[Preview](https://efu.me/) 丨  [Documentation](https://solitude-docs.efu.me/)
+[Preview](https://efu.me/) 丨  [Documentation](https://docs.efu.me/)
 
 </div>
 
@@ -73,7 +73,7 @@
       theme: solitude
       ```
 
-Check out the [Documentation](https://solitude-docs.efu.me/) for more information.
+Check out the [Documentation](https://docs.efu.me/) for more information.
 
 ## Sponsors
 

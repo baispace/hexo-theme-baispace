@@ -362,6 +362,17 @@ post:
     #    qcode: https://s3.qjqq.cn/47/661ba900c4bc1.webp!color
     #    url: https://github.com/sponsors/efuo
     #    color: var(--efu-black)
+  # 分享按钮，需要是什么哪些按钮，填写后开启
+  share:
+    enable: false
+    list:
+    #  - qq
+    #  - weibo
+    #  - twitter
+    #  - facebook
+    #  - telegram
+    #  - whatsapp
+    #  - linkedin
   # 版权中订阅按钮跳转链接，填写地址后开启
   # Subscription button jump link in copyright
   rss: # /atom.xml
@@ -492,6 +503,17 @@ says:
   # 即刻短文仅展示前n条
   # Talk short text only shows the first n
   strip: 30
+
+# 留言板
+# message board
+# 前置要求：需配置留言板页面
+# Pre-requirements: message board page needs to be configured
+envelope:
+  enable: false
+  line: 10 # 显示行数
+  speed: 20 # 播放速度
+  hover: true # 鼠标悬停暂停
+  loop: true # 循环播放
 
 # -------------------------
 # meeting-api，用于界面中的音乐胶囊和音乐馆页，可自定义api，不会请勿动。
@@ -660,6 +682,23 @@ search:
     preload: false
     CDN:
 
+# Post Chat AI
+# 后台地址：https://ai.tianli0.top/?InviteID=OZ3Z0V2R
+tianli_talk:
+  enable: false
+  title: 智能客服与搜索
+  key: # https://ai.tianli0.top/?InviteID=OZ3Z0V2R
+  # 默认值
+  # backgroundColor: "var(--efu-main)",
+  # bottom: "60px",
+  option: #https://ai.tianli0.top/codeMaker.html
+  #  defaultInput: false
+  #  upLoadWeb: true
+  #  userTitle: Efu Chat
+  #  userDesc: 你好，我是 Efu 的智能客服，有什么可以帮助你的？
+  #  showInviteLink: 'https://ai.tianli0.top/?InviteID=OZ3Z0V2R'
+  #  blackDom:
+  #    - .aplayer
 # 文章摘要AI
 # post abstract AI
 post_ai:
@@ -867,8 +906,6 @@ CDN:
     # twikoo:
     # waline_js:
     # waline_css:
-    # sharejs:
-    # sharejs_css:
     # katex:
     # katex_copytex:
     # lazyload:

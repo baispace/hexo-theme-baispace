@@ -8,7 +8,7 @@
 
   一款優雅的 Hexo 主題，支援懶載入、PWA、Latex以及多種評論系統。
 
-  主題由 [@张洪Heo](https://github.com/zhheo) 全權授權、設計！
+   主題設計由 [@张洪Heo](https://github.com/zhheo)全權授權
 
 ![npm package](https://img.shields.io/npm/v/hexo-theme-solitude?color=blue&logo=npm)
 ![release](https://img.shields.io/github/package-json/v/valor-x/hexo-theme-solitude/master?color=%231ab1ad&label=release)
@@ -38,7 +38,7 @@
 [![gitee](https://img.shields.io/badge/Gitee-red?logo=gitee)](https://gitee.com/nsjjd_w/hexo-theme-solitude)
 [![gitlab](https://img.shields.io/badge/GitLab-blue?logo=gitlab)](https://gitlab.com/efu/hexo-theme-solitude)
 
-[預覽](https://efu.me/) 丨  [文档](https://solitude-docs.efu.me/)
+[預覽](https://efu.me/) 丨  [文档](https://docs.efu.me/)
 
 </div>
 
@@ -71,7 +71,7 @@
       theme: solitude
       ```
 
-前往 [文檔](https://solitude-docs.efu.me) 獲取更多資訊。
+前往 [文檔](https://docs.efu.me) 獲取更多資訊。
 
 ## 贊助者
 

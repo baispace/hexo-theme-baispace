@@ -22,6 +22,8 @@ block content
                     include includes/page/music
                 when 'collect'
                     include includes/page/collect.pug
+                when 'message'
+                    !=partial('includes/page/message', {}, {cache: true})
                 when 'banner'
                     include includes/widgets/page/banner
                     if page.container
