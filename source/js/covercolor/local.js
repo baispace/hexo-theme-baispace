@@ -1,32 +1,37 @@
 const coverColor = () => {
     const path = document.getElementById("post-cover")?.src;
-    path ? localColor(path) : setDefaultThemeColors();
+    if (path) {
+        localColor(path);
+    } else {
+        document.documentElement.style.setProperty('--efu-main', 'var(--efu-theme)');
+        document.documentElement.style.setProperty('--efu-main-op', 'var(--efu-theme-op)');
+        document.documentElement.style.setProperty('--efu-main-op-deep', 'var(--efu-theme-op-deep)');
+        document.documentElement.style.setProperty('--efu-main-none', 'var(--efu-theme-none)');
+        initThemeColor()
+    }
 }
 
-function setDefaultThemeColors() {
-    document.documentElement.style.setProperty('--efu-main', 'var(--efu-theme)');
-    document.documentElement.style.setProperty('--efu-main-op', 'var(--efu-theme-op)');
-    document.documentElement.style.setProperty('--efu-main-op-deep', 'var(--efu-theme-op-deep)');
-    document.documentElement.style.setProperty('--efu-main-none', 'var(--efu-theme-none)');
-    initThemeColor();
-}
-
-const localColor = path => {
+const localColor = (path) => {
     const img = new Image();
     img.crossOrigin = "Anonymous";
-    img.onload = () => setThemeColors(calculateColor(img));
-    img.onerror = () => console.error('Image Error');
+    img.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        const data = ctx.getImageData(0, 0, img.width, img.height).data;
+        const {r, g, b} = calculateRGB(data);
+        let value = rgbToHex(r, g, b);
+        if (getContrastYIQ(value) === "light") {
+            value = LightenDarkenColor(value, -50);
+        }
+        setThemeColors(value, r, g, b);
+    };
+    img.onerror = function () {
+        console.error('图片加载失败');
+    };
     img.src = path;
-}
-
-const calculateColor = img => {
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    const data = ctx.getImageData(0, 0, img.width, img.height).data;
-    const {r, g, b} = calculateRGB(data);
-    let value = rgbToHex(r, g, b);
-    return getContrastYIQ(value) === "light" ? LightenDarkenColor(value, -50) : value;
 }
 
 function calculateRGB(data) {
@@ -132,5 +137,27 @@ function setThemeColors(value, r = null, g = null, b = null) {
         document.documentElement.style.setProperty('--efu-main-op-deep', 'var(--efu-theme-op-deep)');
         document.documentElement.style.setProperty('--efu-main-none', 'var(--efu-theme-none)');
         initThemeColor();
+    }
+}
+
+function initThemeColor() {
+    const currentTop = window.scrollY || document.documentElement.scrollTop;
+    let themeColor;
+    if (currentTop > 0) {
+        themeColor = getComputedStyle(document.documentElement).getPropertyValue('--efu-card-bg');
+    } else if (PAGE_CONFIG.is_post) {
+        themeColor = getComputedStyle(document.documentElement).getPropertyValue('--efu-main');
+    } else {
+        themeColor = getComputedStyle(document.documentElement).getPropertyValue('--efu-background');
+    }
+    changeThemeColor(themeColor);
+}
+
+function changeThemeColor(color) {
+    if (null !== document.querySelector('meta[name="theme-color"]') && (document.querySelector('meta[name="theme-color"]').setAttribute("content", color),
+        document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').setAttribute("content", color)),
+        window.matchMedia("(display-mode: standalone)").matches) {
+        const t = document.body;
+        t ? t.style.backgroundColor = color : console.error("document.body not found.")
     }
 }
