@@ -95,14 +95,6 @@ main
 *::-webkit-scrollbar-track
   background-color transparent
 
-#site-title,
-#site-subtitle,
-.site-name,
-#aside-content .author-info__name,
-#aside-content .author-info__description
-  font-family "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif
-
-
 if hexo-config('lazyload.enable') && !hexo-config('lazyload.placeholder')
   img
     &[data-lazy-src]:not(.loaded)
@@ -371,7 +363,7 @@ i.solitude
 .layout
   display: flex
   margin: 0 auto
-  padding: 1rem 1.5rem
+  padding: 0 1.5rem
   max-width: 1200px
   +maxWidth768()
     padding 0
@@ -391,7 +383,7 @@ i.solitude
     +maxWidth1200()
       width 100%
 
-  > div:first-child:not(.recent-posts,.aside-content)
+  > #post,#category,#tag,#archive
     box-shadow var(--efu-shadow-border)
     padding 1rem 2rem
     border-radius 12px
@@ -408,6 +400,10 @@ i.solitude
       border none
       padding 0 1rem
       background var(--efu-background)
+
+.show
+  opacity 1 !important
+  pointer-events all !important
 
 span.tags-punctuation::before
   content: "\e071"
