@@ -17,6 +17,15 @@
   &.show .close-btn i
     transform rotate(0)
 
+  if hexo-config('recent_comments.enable') && hexo-config('recent_comments.console')
+    .recent-comment-more
+      margin-left auto
+      display flex
+      align-items center
+
+      &:hover
+        color var(--efu-main)
+
   .console-card-group
     display flex
     justify-content space-between
@@ -35,11 +44,13 @@
     +maxHeight800()
       display none
 
+
   &.show
     .console-card-group
       transform translateY(0)
       opacity 1
       transition-delay .1s
+      max-height 80%
 
   .console-card-group-left
     margin-right .5rem
@@ -102,6 +113,8 @@
     font-size 36px
     font-weight 700
     line-height 1
+    display flex
+    align-items center
 
   .aside-list-item
     .thumbnail
