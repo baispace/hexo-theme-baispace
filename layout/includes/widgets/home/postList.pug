@@ -7,7 +7,7 @@ mixin info
         div.recent-post-info-top-tips
             if post.sticky && is_home()
                 span.article-meta.sticky-warp
-                    i.solitude.st-thumbtack-solid.sticky.orange
+                    i.solitude.fa-solid.fa-thumbtack.sticky.orange
                     span.sticky.orange= _p('home.sticky')
             each category in post.categories.data
                 span.original= category.name
@@ -29,12 +29,12 @@ mixin info
                 .content!= post.description
             else
                 - const content = strip_html(post.content)
-                - let expert = content.substring(0, theme.index_post_list.length)
+                - let expert = content.substring(0, theme.index_post_list.length).replace(/\d+/g, '').replace(/&#xF/g, '').replace(/&#x/g, '')
                 - content.length > theme.index_post_list.length ? expert += ' ...' : ''
                 .content!= expert
         default
             - const content = strip_html(post.content)
-            - let expert = content.substring(0, theme.index_post_list.length)
+            - let expert = content.substring(0, theme.index_post_list.length).replace(/\d+/g, '').replace(/&#xF/g, '').replace(/&#x/g, '')
             - content.length > theme.index_post_list.length ? expert += ' ...' : ''
             .content!= expert
 
@@ -42,7 +42,9 @@ mixin info
         span.article-meta.tags
             each tag in post.tags.data
                 a.article-meta__tags(href=url_for(tag.path), onclick="event.stopPropagation();")
-                    span.tags-punctuation=tag.name
+                    span.tags-punctuation
+                        i.solitude.fa-solid.fa-hashtag
+                        =tag.name
 
         span.post-meta-date
             time(datetime=moment(post.date))
@@ -73,8 +75,9 @@ div.recent-post-item(onclick="pjax.loadUrl('" + url_for(post.path) + "')")
 
 
 if theme.google_adsense && theme.google_adsense.enable && theme.google_adsense.auto_ads === false && theme.google_adsense.post_card
+    - var ads_height = theme.index_post_list.direction === 'column' ? '401px;' : '280px;'
     if (index + 1) % 3 === 0
         div.recent-post-item.google-ads-warp
-            ins.adsbygoogle(style="display:block; text-align:center; min-width: 100%; height:220px", data-ad-layout="in-article", data-ad-format="fluid", hide-unfilled="true", data-ad-client=theme.google_adsense.client, data-ad-slot=theme.google_adsense.slot)
+            ins.adsbygoogle(style="display:block; text-align:center; min-width: 100%; height:" + ads_height, data-ad-layout="in-article", data-ad-format="fluid", hide-unfilled="true", data-ad-client=theme.google_adsense.client, data-ad-slot=theme.google_adsense.slot)
             script.
                 (adsbygoogle = window.adsbygoogle || []).push({});

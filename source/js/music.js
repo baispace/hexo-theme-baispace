@@ -45,6 +45,7 @@ class ScoMusicPlayer {
         img.onload = () => {
             element.style.backgroundImage = musicCover.style.backgroundImage;
         };
+        element.className = 'show'
     }
 
     setLoadingScreen(loadingElement, backgroundElement) {
@@ -53,7 +54,7 @@ class ScoMusicPlayer {
             if (musicCover) {
                 loadingElement.style.display = "none";
                 clearInterval(timer);
-                document.querySelector('meting-js').aplayer.volume(0.8, true);
+                document.querySelector('meting-js');
                 this.addEventListenerChangeMusicBg();
                 backgroundElement.style.display = "block";
             }

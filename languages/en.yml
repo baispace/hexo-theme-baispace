@@ -4,6 +4,8 @@ random: Random
 upload: 'datetime: '
 totalk: You don't need to delete blank lines, just type in your comments.
 loading: Loading...
+day: ' days'
+hot-tip: Hot
 
 theme:
   dark: Dark
@@ -35,10 +37,11 @@ page:
   404: Page not found
 
 home:
-  home: Home
+  home: Recommend
   sticky: Sticky
   new: New
   read: Unread
+  recommend: Recommend
   recommendmore: More
   archives: All articles
 
@@ -57,9 +60,23 @@ post:
     reprint: This article is a reproduction or translation, and the copyright belongs to the original author. Please contact the original author for permission to republish this article.
     original: This piece of writing is an original article, utilizing the
     original_end: Agreement. For complete reproduction, please acknowledge the source as Courtesy of
+  share:
+    qq: Share to QQ
+    weibo: Share to Weibo
+    telegram: Share to Telegram
+    twitter: Share to Twitter
+    linkedin: Share to LinkedIn
+    facebook: Share to Facebook
+    link: Share to Link
+    qrcode: Share to QR code
+    whatsapp: Share to WhatsApp
   ai:
     title: Article Summary
     tip: Complaints
+  nav:
+    next: Next
+    prev: Previous
+    
 
 nav:
   site_name_title: Back to home
@@ -71,25 +88,25 @@ nav:
 
 award:
   thanks: Thanks
-  tipping: Tipping
+  tipping: Sponsor
   title: List of appreciation
 
 search:
   empty: No results found
   hit: Found ${query} results for you
-  placeholder: Enter keywords to quickly search
+  placeholder: Enter keywords to search
   count: Total <b>${count}</b> results.
 
 head:
   noscript: Please enable JavaScript to view the site
 
 aside:
-  postcount: 'Posts :'
-  pv: 'PV :'
-  uv: 'UV :'
-  runtime: 'Runtime :'
-  updatetime: 'Last update :'
-  wordcount: 'Word count :'
+  postcount: 'Posts:'
+  pv: 'PV:'
+  uv: 'UV:'
+  runtime: 'Runtime:'
+  updatetime: 'Last update:'
+  wordcount: 'Word count:'
   toc: Table of contents
   tagmore: View all
   avatar: Avatar
@@ -97,6 +114,7 @@ aside:
   back: Welcome back again,
   sticker: Mood sticker
   newpost: New posts
+  newcomment: New comments
   card:
     posts: 'Posts:'
     tags: 'Tags:'
@@ -107,7 +125,7 @@ console:
   comment_title: Latest comments
   tag_tip: Tags
   tag_title: Find interesting areas
-  switch_darkmode: Day and night switching
+  switch_darkmode: Day and night mode
   switch_hideAside: Sidebar display control
   switch_keyboard: Keyboard operation
   switch_music: Music switch
@@ -152,7 +170,7 @@ keyboard:
   title: Blog shortcuts
 
 newest_comment:
-  error: Unable to get a comment, please confirm that the relevant configuration is correct.
+  error: Unable to get comments, please check the configuration.
   zero: No comments.
 
 comment:
@@ -178,19 +196,19 @@ right_menu:
   cht_to_chs: 转为简体
   img_error: This image cannot be copied or downloaded.
   barrage:
-    open: OpenBarrage
-    close: CloseBarrage
+    open: Open Barrage
+    close: Close Barrage
   music:
     start: Play
     stop: Pause
     back: Back
     forward: Forward
-    copyMusicName: CopyName
+    copyMusicName: Copy Name
 
 pagination:
   prev: Prev
   next: Next
-  to: To page
+  to: Go to page
 
 about:
   other:

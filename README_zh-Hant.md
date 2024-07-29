@@ -1,66 +1,49 @@
-[简体中文](README.md)丨繁体中文丨[English](README_en-US.md)
+[English](README.md)丨[简体中文](README_zh-Hans.md)丨繁体中文
 
 <div align="center">
-  
-   <img src=".github/logo.svg" alt="Solitude logo" height="200">
 
-  <h1>Hexo Theme Solitude</h1>
+  <h1>Solitude</h1>
 
-  一款優雅的 Hexo 主題，支援懶載入、PWA、Latex以及多種評論系統。
+  一款優雅的 Hexo 主題，支援懶載入、PWA、Latex 以及多種評論系統。
 
-   主題設計由 [@张洪Heo](https://github.com/zhheo)全權授權
+   主題設計由 [@张洪Heo](https://github.com/zhheo) 全權授權
 
-![npm package](https://img.shields.io/npm/v/hexo-theme-solitude?color=blue&logo=npm)
-![release](https://img.shields.io/github/package-json/v/valor-x/hexo-theme-solitude/master?color=%231ab1ad&label=release)
-![license](https://img.shields.io/github/license/valor-x/hexo-theme-solitude?color=FF5531)
-[![Stars](https://img.shields.io/github/stars/valor-x/hexo-theme-solitude)](https://github.com/valor-x/hexo-theme-solitude/stargazers)
-[![NPM all downloads](https://img.shields.io/npm/dy/hexo-theme-solitude?color=white)](https://www.npmjs.com/package/hexo-theme-solitude)
+![npm package](https://img.shields.io/npm/v/hexo-theme-solitude?style=for-the-badge)
+![license](https://img.shields.io/github/license/everfu/hexo-theme-solitude?color=FF5531&style=for-the-badge)
+[![Stars](https://img.shields.io/github/stars/everfu/hexo-theme-solitude?style=for-the-badge)](https://github.com/everfu/hexo-theme-solitude/stargazers)
+[![NPM all downloads](https://img.shields.io/npm/dy/hexo-theme-solitude?color=white&style=for-the-badge)](https://www.npmjs.com/package/hexo-theme-solitude)
 
-![hexo version](https://img.shields.io/badge/hexo-7.0.0+-blue?logo=hexo&logoColor=white)
-![node version](https://img.shields.io/badge/node-14.0.0-white?logo=node.js&logoColor=white)
+![hexo version](https://img.shields.io/badge/hexo-7.0.0+-blue?logo=hexo&logoColor=white&style=for-the-badge)
+![node version](https://img.shields.io/badge/node-14.0.0+-white?logo=node.js&logoColor=white&style=for-the-badge)
 
-![Latex](https://img.shields.io/badge/latex-20B2AA?logo=Latex)
-![Ads](https://img.shields.io/badge/Google_Ads-black?logo=googleads)
-![algolia](https://img.shields.io/badge/algolia-457AFF?logo=algolia)
+![page view](https://komarev.com/ghpvc/?username=hexo-theme-solitude&abbreviated=true&base=12345&style=for-the-badge)
+[![discord](https://img.shields.io/discord/1266610921942548553?style=for-the-badge&logo=discord&label=discord&logoColor=white)](https://discord.gg/HZXAnK4Sut)
+![JetBrains](https://img.shields.io/badge/jetbrains-support-black?logo=jetbrains&style=for-the-badge)
 
-![cdnjs](https://img.shields.io/badge/cdnjs-orange?logo=Cloudflare&logoColor=white)
-![A11y](https://img.shields.io/badge/A11y-green?logo=%C3%8Ele-de-France%20Mobilit%C3%A9s&logoColor=white)
-![mermaid](https://img.shields.io/badge/mermaid-ff3670?logo=mermaid&logoColor=white)
-[![pwa](https://img.shields.io/badge/pwa-red?logo=pwa)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
-
-[![twiter](https://img.shields.io/badge/Twitter-gray?logo=x)](https://twitter.com/efu_oo)
-[![TG](https://img.shields.io/badge/Telegram-gray?logo=Telegram&logoColor=white)](https://t.me/solitudePro)
-[![Discord](https://img.shields.io/discord/1218118131428495430?label=Discord&logo=Discord&labelColor=white&color=black)](https://discord.gg/Y8VEvVgW)
-
-![JetBrains](https://img.shields.io/badge/jetbrains-support-black?logo=jetbrains)
-![DuoLingo](https://img.shields.io/badge/duolingo-support-black?logo=duolingo&logoColor=white)
-
-[![gitee](https://img.shields.io/badge/Gitee-red?logo=gitee)](https://gitee.com/nsjjd_w/hexo-theme-solitude)
-[![gitlab](https://img.shields.io/badge/GitLab-blue?logo=gitlab)](https://gitlab.com/efu/hexo-theme-solitude)
-
-[文档 & 預覽](https://solitude.js.org/)
+[文档](https://solitude.js.org/)丨[預覽](https://everfu.github.io/Solitude/)
 
 </div>
 
-![Screenshot](.github/screenshot.webp)
+<div style="width: 80%; margin: 0 auto">
+
+![Screenshot](.github/screenshot.avif)
+
+</div>
 
 ## 特性
 
-- 頁面懶載入（Pjax）、圖片懶載入（LazyLoad）、離線應用（PWA） 
-- 評論(Twikoo、Waline、Valine、Artalk)，支援雙評論
-- 晝夜切換（ColorMode） 
-- 燈箱（medium-zoom、fancybox） 
+- 頁面懶載入（Pjax）、圖片懶載入（LazyLoad）、離線應用（PWA）
+- 評論(Twikoo、Waline、Valine、Artalk、Giscus)，支援雙評論
+- 晝夜切換（ColorMode）
+- 燈箱（medium-zoom、fancybox）
 - 數學公式（Latex） 
-- 特色頁面：即刻短文、我的裝備、在線工具、音樂館、友鏈魚塘、相冊頁、豆瓣頁、留言彈幕頁
-- 文章功能：AI 摘要、代碼高亮
+- 特色頁面：即刻短文、我的裝備、在線工具、音樂館、友鏈魚塘、相冊頁、豆瓣頁、留言彈幕頁。
+- 文章功能：AI 摘要、代碼高亮。
 
 ## Todo
 
-- [x] Artalk 評論
-- [x] 雙評論
-- [x] 相冊
-- [x] 留言彈幕頁
-- [ ] 首頁頂部新樣式 
+- [x] 首页文章列表三列显示
+- [x] btns 外挂标签
 
 ## 應用
 
@@ -77,12 +60,23 @@
 
 ## 贊助者
 
+<div align="center">
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W1YSMOK)
+
+</div>
+
 <p align="center">
   <a href="https://cdn.jsdelivr.net/gh/efuo/static/sponsors.svg">
     <img src='https://cdn.jsdelivr.net/gh/efuo/static/sponsors.svg'/>
   </a>
 </p>
 
+## 社區
+
+[![Discord](https://img.shields.io/discord/1266610921942548553?style=for-the-badge&logo=discord&label=discord&logoColor=white)](https://discord.gg/HZXAnK4Sut)
+[![QQ 群](https://img.shields.io/badge/QQ%20群-948375336-FFD700?logo=Tencent-QQ&logoColor=white&style=for-the-badge)](https://qm.qq.com/q/mxfomMvJPG)
+
 ## 版權
 
-[MIT](./LICENSE) License &copy; 2023-至今 [Efu](https://github.com/efuo)
+[MIT](./LICENSE) License &copy; 2023-至今 [Efu](https://github.com/everfu)

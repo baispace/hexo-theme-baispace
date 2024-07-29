@@ -5,11 +5,11 @@
 .banner-button-group
     if theme.footer.randomlink
         a.banner-button.secondary(onclick="travelling()")
-            i.solitude.st-signal-tower-fill
+            i.solitude.fa-solid.fa-tower-broadcast
             span.banner-button-text=_p('link.banner.random')
     if theme.comment.use
         a.banner-button(onclick="sco.scrollToComment()")
-            i.solitude.st-right-btn-fill
+            i.solitude.fa-solid.fa-circle-chevron-right
             span.solitude.banner-button-text=_p('link.banner.toComment')
 
 .tags-group-all.nowrapMove
@@ -29,3 +29,4 @@
                         each y in pair
                             a.tags-group-icon(href=url_for(y.link), title=y.name)
                                 img(src=y.avatar + (site.data.links.banner_suffix || ''), title=y.name)
+                                span.tags-group-title=y.name

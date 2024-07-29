@@ -53,10 +53,9 @@
 .post-comment
   background var(--efu-card-bg)
 
-div#post-comment
-  margin-top 2rem
-
 #post-comment
+  .post &
+    padding 0 2rem
   > div.comment-head
     > div.comment-privacy
       display block
@@ -76,8 +75,7 @@ div#post-comment
     font-size .6rem
     color var(--efu-secondtext)
     border-radius 8px
-
-  if hexo-config('comment.use')[1]
+  if index(hexo-config('comment.use'), ',') || hexo-config('comment.use')[1]
     &.move
       if hexo-config('comment.count')
         .comment-head
@@ -100,10 +98,10 @@ div#post-comment
 
   .comment-head
     font-size .8em
-    margin-bottom .5rem
+    margin .5rem 0
     position relative
 
-    if hexo-config('comment.use')[1]
+    if index(hexo-config('comment.use'), ',') || ',' in hexo-config('comment.use')
       .count span:last-child
         display none
 
@@ -139,7 +137,7 @@ div#post-comment
             content ''
             transition .4s
 
-  if hexo-config('comment.use')[1]
+  if ',' in hexo-config('comment.use') || index(hexo-config('comment.use'), ',')
     .comment-wrap
       > div:last-child
         display none

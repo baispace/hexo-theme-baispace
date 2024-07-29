@@ -2,11 +2,11 @@
 
 script(pjax).
     (async () => {
-        document.querySelector('#comments-page').textContent = `#{__("loading")}`
+        document.querySelector('!{sel}').textContent = `#{__("loading")}`
         const emojiReg = /<img [^>]+ atk-emoticon="[^"]+">/g
-        let cache = utils.saveToLocal.get('artalk-recent-comments')
+        let cache = utils.saveToLocal.get('!{str_name}')
         if (cache) {
-            setHtml(document.querySelector('#comments-page'), cache)
+            setHtml(document.querySelector('!{sel}'), cache)
             return
         }
         let ls = []
@@ -37,8 +37,8 @@ script(pjax).
                         content: formatContent(i.content)
                     })
                 }
-                setHtml(document.querySelector('#comments-page'), ls)
-                utils.saveToLocal.set('artalk-recent-comments', ls, !{cache})
+                setHtml(document.querySelector('!{sel}'), ls)
+                utils.saveToLocal.set('!{str_name}', ls, !{cache})
             })
 
         function setHtml(el, data) {
@@ -53,7 +53,7 @@ script(pjax).
                                             </div>
                                             <div class="comment-content">${i.content}</div>
                                             <div class="comment-title">
-                                            <i class="solitude st-chat-fill"></i>
+                                            <i class="solitude fa-solid fa-comment"></i>
                                             ${i.title}</div>
                                         </div>
                                     `).join('')

@@ -13,7 +13,6 @@ hexo.extend.filter.register('before_generate', () => {
             menu: null,
             right: {
                 random: false,
-                console: false,
                 custom: [],
             }
         },
@@ -29,7 +28,7 @@ hexo.extend.filter.register('before_generate', () => {
                 sup: 'Recommend',
                 title: 'Solitude Docs',
                 url: 'https://solitude.js.org/',
-                img: '/img/default.png',
+                img: '/img/default.avif',
                 color: 'none',
             }
         },
@@ -50,7 +49,7 @@ hexo.extend.filter.register('before_generate', () => {
                 style: 0,
                 author: {
                     img: '/img/logo.png',
-                    sticker: '/img/happy-sticker.png',
+                    sticker: '/img/happy-sticker.avif',
                 },
                 url: '/about/',
                 background: null,
@@ -71,6 +70,11 @@ hexo.extend.filter.register('before_generate', () => {
                 face: '',
                 backface: '',
                 backcolor: 'var(--efu-blue)'
+            },
+            newest_comment: {
+                enable: false,
+                storage: .5,
+                limit: 5
             },
             toc: {
                 post: true,
@@ -99,6 +103,7 @@ hexo.extend.filter.register('before_generate', () => {
         },
         index_post_list: {
             direction: 'column',
+            column: 2,
             content: false,
             length: 500,
             cover: 'both'
@@ -107,13 +112,15 @@ hexo.extend.filter.register('before_generate', () => {
             error: true,
             tags: true,
             categories: true,
+            archives: 0,
             default: {
-                cover: ['/img/default.png'],
+                cover: ['/img/default.avif'],
             }
         },
         post: {
             default: {
-                cover: ['/img/default.png'],
+                top_cover: true,
+                cover: ['/img/default.avif'],
                 locate: 'China, Changsha',
                 copyright: {
                     enable: true,
@@ -144,6 +151,10 @@ hexo.extend.filter.register('before_generate', () => {
                 mode: 'local',
                 api: 'https://api.qjqq.cn/api/Imgcolor?img=',
                 time: 43200000,
+            },
+            share: {
+              enable: false,
+              list: []
             },
             footer: {
                 enable: true,
@@ -186,7 +197,7 @@ hexo.extend.filter.register('before_generate', () => {
             license: null,
             links: [{
                 name: 'Solitude',
-                url: 'https://github.com/valor-x/hexo-theme-solitude',
+                url: 'https://github.com/everfu/hexo-theme-solitude',
             }]
         },
         errorpage: {
@@ -236,8 +247,8 @@ hexo.extend.filter.register('before_generate', () => {
         lazyload: {
             enable: false,
             field: 'site',
-            placeholder: '/img/loading.gif',
-            errorimg: '/img/error_load.webp'
+            placeholder: '/img/loading.avif',
+            errorimg: '/img/error_load.avif'
         },
         loading: {
             fullpage: false,
@@ -300,9 +311,9 @@ hexo.extend.filter.register('before_generate', () => {
             lazyload: false,
             count: false,
             avatar: 'https://cravatar.cn',
-            newest_comment: {
-                enable: false,
-                storage: .2
+            hot_tip: {
+                enable: true,
+                count: 3
             }
         },
         twikoo: {
@@ -331,6 +342,17 @@ hexo.extend.filter.register('before_generate', () => {
             site: 'your site-name',
             option: null,
         },
+        console: {
+            enable: false,
+            recentComment: {
+                enable: false,
+                storage: .2,
+            },
+            card: {
+                tags: true,
+                archive: true
+            }
+        },
         verify_site: [],
         css_prefix: false,
         font: {
@@ -347,11 +369,11 @@ hexo.extend.filter.register('before_generate', () => {
             enable: false,
             manifest: '/manifest.json',
             theme_color: "#006a73",
-            mask_icon: '/img/logo.png',
-            apple_touch_icon: '/img/logo.png',
-            bookmark_icon: '/img/logo.png',
-            favicon_32_32: '/img/logo.png',
-            favicon_16_16: '/img/logo.png'
+            mask_icon: '/img/pwa/favicon.ico',
+            apple_touch_icon: '/img/pwa/favicon.ico',
+            bookmark_icon: '/img/pwa/favicon.ico',
+            favicon_32_32: '/img/pwa/favicon_32.ico',
+            favicon_16_16: '/img/pwa/favicon_16.ico'
         },
         google_adsense: {
             enable: false,
@@ -373,6 +395,24 @@ hexo.extend.filter.register('before_generate', () => {
                 translateDelay: 0,
             },
             custom_list: []
+        },
+        lure: {
+            enable: false,
+            jump: '404 Not Found',
+            back: 'ヾ(≧∇≦*)ゝ嘿嘿，上当了吧'
+        },
+        expire: {
+            enable: false,
+            time: 30,
+            position: 'top',
+            text_prev: '本文已于',
+            text_next: '天前过期，如果内容不符，请联系站长更新。',
+        },
+        background: {
+            enable: false,
+            dark: 'https://bu.dusays.com/2023/09/29/651685ce667d1.jpg',
+            light: 'https://bu.dusays.com/2023/09/29/651685cc18d39.jpg',
+            opacity: .2,
         },
         CDN: {
             internal: 'local',

@@ -10,7 +10,6 @@
     background 0 center
 
     #nav
-      z-index 998
       transition .3s
       background var(--efu-card-bg)
 
@@ -20,13 +19,22 @@
         &:hover
           color var(--efu-card-bg)
 
-    &:not(.nav-fixed)
-      #nav
-        background var(--efu-none)
-        transition .3s
+  &:not(.nav-fixed)
+    #nav
+      background var(--efu-none)
+      transition .3s
 
-        +maxWidth768()
-          transition 0s
+      +maxWidth768()
+        transition 0s
+
+      .post &
+
+        #nav-right
+          .nav-button
+            .console_switchbutton
+              label
+                i
+                  background var(--efu-white)
 
 #page-header
   #site-title
@@ -134,7 +142,6 @@
       align-items center
       margin-right 1.5rem
       overflow hidden
-      gap .5rem
 
       +maxWidth768()
         margin-right 12px
@@ -143,6 +150,9 @@
         padding 0
 
       .nav-button
+        margin-left 12px
+        cursor pointer
+
         a
           height 35px
           width 35px
@@ -150,6 +160,9 @@
           align-items center
           justify-content center
           border-radius 40px
+
+          i
+            font-size 20px
 
           &.totopbtn
             width 25px
@@ -163,7 +176,53 @@
             transition .3s
 
           &.console_switchbutton
-            padding 4px 8px
+            padding 10px 7.5px
+
+            &:hover
+              label
+                i
+                  background var(--efu-white)
+
+                .left
+                  width .5rem
+                  height .3rem
+
+                .center
+                  width .5rem
+                  height .3rem
+
+                .right
+                  width .3rem
+                  height 100%
+
+            label
+              display flex
+              position relative
+              width 100%
+              height 100%
+              cursor pointer
+
+              i
+                transition all .3s
+                position absolute
+                border-radius 12px
+                background var(--efu-fontcolor)
+
+                &.left
+                  top 0
+                  width 100%
+                  height .3rem
+
+                &.center
+                  bottom 0
+                  width .3rem
+                  height .3rem
+
+                &.right
+                  right 0
+                  bottom 0
+                  width .5rem
+                  height .3rem
 
         &.long
           a
@@ -187,7 +246,6 @@
     #nav
       position fixed
       top 0
-      z-index 103
       transition .3s
       box-shadow none
       background var(--efu-card-bg)
@@ -272,7 +330,7 @@
       transform scale(0)
       margin-left 0
       overflow hidden
-      transition .3s ease-in
+      transition .3s
 
 #page-header #scroll-down .scroll-down-effects,
 #page-header #site-subtitle, #page-header #site-title
@@ -287,7 +345,7 @@
   padding 0
   position absolute
   top 0
-  z-index 90
+  z-index 10
   display flex
   flex-wrap wrap
   -webkit-box-align center
@@ -307,7 +365,6 @@
     top 0
     transition .2s
     position fixed
-    z-index 91
     opacity 1
     filter none
 
@@ -343,23 +400,20 @@
         i, span, img
           opacity 0
 
-      &:after
+      i.fa-solid.fa-home
         +minWidth900()
           opacity: 1
 
-    &:after
-      +minWidth900()
-        opacity 0
-        position absolute
-        display flex
-        z-index 1
-        content "\e008"
-        font-family solitude, serif
-        align-items center
-        justify-content center
-        font-size 22px
-        line-height 1
-        color var(--efu-card-bg)
+    i.fa-solid.fa-home
+      opacity 0
+      position absolute
+      display flex
+      z-index 1
+      align-items center
+      justify-content center
+      font-size 22px
+      line-height 1
+      color var(--efu-card-bg)
 
     if hexo-config('site.name.class') == i_class
       i
@@ -488,7 +542,7 @@
 
             i
               &:not(.fa-brands)
-                font-size 22px
+                font-size 16px
                 margin-right 8px
                 line-height 1
 
@@ -566,15 +620,6 @@
     &-mask
       +maxWidth899()
         display none !important
-
-.nav-button
-  cursor pointer
-
-#site-name
-  .iconfont
-    font-size 20px
-    font-weight 400
-    line-height 48px
 
 #site-logo
   width 121px
@@ -695,6 +740,7 @@ if hexo-config('nav.group')
       opacity 0
       pointer-events none
       backdrop-filter blur(20px)
+      -webkit-backdrop-filter blur(20px)
 
       +maxWidth768()
         left 0
@@ -740,14 +786,15 @@ if hexo-config('nav.group')
             background-color var(--efu-main)
 
 .post
-  if hexo-config('nav.group')
-    .back-home-button
-      color var(--efu-white)
-
-      &:hover
-        background var(--efu-white-op)
+  .post-bg
+    if hexo-config('nav.group')
+      .back-home-button
         color var(--efu-white)
-        cursor pointer
+
+        &:hover
+          background var(--efu-white-op)
+          color var(--efu-white)
+          cursor pointer
 
   #nav
     #site-name
@@ -755,14 +802,21 @@ if hexo-config('nav.group')
         +minWidth900()
           align-items center
 
-      &:after
+      i.fa-solid.fa-home
         color var(--efu-white)
 
   .nav-fixed
     #nav
       #site-name
-        &:after
+        i.fa-solid.fa-home
           color var(--efu-card-bg)
+
+  .not-top-img
+    #nav
+      a
+        &:hover
+          +minWidth900()
+            background var(--efu-lighttext)
 
 .back-menu-list
   display flex
@@ -862,8 +916,8 @@ if hexo-config('nav.group')
           height 35px
           line-height 35px
           border-radius 40px
-          if hexo-config('language') == 'en'
-            letter-spacing 0
+          if $language == 'en-US'
+            letter-spacing normal
 
 #travellings_button
   display inline
@@ -896,7 +950,7 @@ if hexo-config('nav.group')
     overflow hidden
     left 0
 
-if hexo-config('nav.right.console')
+if hexo-config('console.enable')
   #nav-console
     +maxWidth768()
       display none

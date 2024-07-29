@@ -1,6 +1,6 @@
 .card-widget.card-recent-post
     .item-headline
-        i.solitude.st-map-line
+        i.solitude.fa-solid.fa-map
         span= _p('aside.newpost')
     .aside-list
         - let index = 1
@@ -8,9 +8,9 @@
             if index <= 5
                 .aside-list-item
                     a.thumbnail(href=url_for(post.path) title=post.title)
-                        img(alt=post.title src=post.cover)
+                        img(alt=post.title src=url_for(post.cover))
                     .content
-                        a.title(href=url_for(post.path) title=post.title)= post.title
+                        span.title(href=url_for(post.path) title=post.title)= post.title
                         if post.categories.data[0]
-                            a.article-recent_post_categories(href=url_for(post.path))= post.categories.data[0].name
+                            span.article-recent_post_categories(href=url_for(post.path))= post.categories.data[0].name
                 - index++

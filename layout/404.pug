@@ -8,7 +8,7 @@ block content
                 h1.error_title 404
                 .error_subtitle= theme.errorpage.text
                 a.button--animated(href=url_for("/"))
-                    i.solitude.st-external-link
+                    i.solitude.fa-solid.fa-arrow-up-right-from-square
                     =_p('404.button')
 
     if theme.errorpage.recommendList
@@ -19,6 +19,6 @@ block content
                         break
                     .aside-list-item
                         a.thumbnail(href=url_for(post.path), title=post.title)
-                            img(src=post.cover, alt=post.title)
+                            img(src=url_for(post.cover), alt=post.title)
                         .content
                             a.title(href=url_for(post.path), title=post.title)= post.title
