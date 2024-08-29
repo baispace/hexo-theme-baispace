@@ -22,10 +22,10 @@
       &::-webkit-scrollbar
         display none
 
-      .recent-post-group
+      .top-post-group
         display flex
         flex-direction row
-        justify-content space-between
+        justify-content start
         flex-wrap wrap
         align-content space-between
         gap .5rem
@@ -76,11 +76,10 @@
       position relative
       animation slide-in .6s .1s backwards
 
-    .recent-post-item
+    .top-post-item
       display flex
       flex-direction column
       width calc(100% / 3 - 0.5rem)
-      min-width 200px
       align-items flex-start
       background var(--efu-card-bg)
       border-radius 12px
@@ -91,6 +90,7 @@
       transition .3s
       position relative
       box-shadow var(--efu-shadow-border)
+      min-width fit-content
 
       &:nth-last-child(2):nth-child(1),
       &:nth-last-child(1):nth-child(2)
@@ -100,7 +100,7 @@
         width 200px
         min-width 200px
 
-      &:hover .post_cover a .recent-post-top-text
+      &:hover .post_cover a .top-post-top-text
         left 0
 
       .post_cover
@@ -116,7 +116,7 @@
             width 100%
             background var(--efu-secondbg)
 
-          .recent-post-top-text
+          .top-post-top-text
             position absolute
             top 0
             left -50px
@@ -132,7 +132,7 @@
             if $language == 'en-US'
               left -90px
 
-      /.recent-post-info
+      /.top-post-info
         padding .3rem .5rem .3rem .5rem
         transition .3s
 
@@ -270,7 +270,6 @@
   border-radius 60px
   margin-bottom 12px
   color var(--efu-white)
-  width 100px
   position relative
   background-size 200%
 
@@ -281,4 +280,4 @@
     background-position 100% 0
 
 .banners-link-title
-  margin-left auto
+  margin 0 .1rem 0 .5rem
