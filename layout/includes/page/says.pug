@@ -38,11 +38,11 @@ if theme.says.enable
                             .bber-bottom
                                 .bber-info
                                     .bber-info-time
-                                        i.solitude.fa-solid.fa-calendar-days
+                                        i.solitude.fa-solid.fa-calendar-day
                                         time.datetime(datetime=moment(item.date).format())
                                     if item.location
                                         .bber-info-location
-                                            i.solitude.fa-solid.fa-map
+                                            i.solitude.fas.fa-location-dot
                                             = item.location
                                     if item.link
                                         a.bber-content-link(href=url_for(item.link) target="_blank")

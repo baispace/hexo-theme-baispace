@@ -20,7 +20,7 @@ English丨[简体中文](README_zh-Hans.md)丨[繁体中文](README_zh-Hant.md)
 [![discord](https://img.shields.io/discord/1266610921942548553?style=for-the-badge&logo=discord&label=discord&logoColor=white)](https://discord.gg/HZXAnK4Sut)
 ![JetBrains](https://img.shields.io/badge/jetbrains-support-black?logo=jetbrains&style=for-the-badge)
 
-[Documentation](https://solitude.js.org/)丨[Preview](https://solitude.js.org/preview/)
+[Docs](https://solitude.js.org/)丨[Preview](https://solitude.js.org/preview/)丨[Author](https://blog.everfu.cn/)
 
 </div>
 
@@ -43,7 +43,6 @@ English丨[简体中文](README_zh-Hans.md)丨[繁体中文](README_zh-Hant.md)
 ## Todo
 
 - [x] The list of articles is displayed in three columns on the homepage.
-- [x] btns tags plugin.
 
 > If you have any questions, please issue an [issue](https://github.com/everfu/hexo-theme-solitude/issues)
 
@@ -81,4 +80,6 @@ Check out the [Documentation](https://solitude.js.org/) for more information.
 
 ## License
 
-[MIT](./LICENSE) License &copy; 2023-PRESENT [Ever Fu](https://github.com/everfu)
+[MIT](./LICENSE) License &copy; 2023-PRESENT [一小只托尼](https://github.com/everfu)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fvalor-x%2Fhexo-theme-solitude.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fvalor-x%2Fhexo-theme-solitude?ref=badge_large)

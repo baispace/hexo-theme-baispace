@@ -54,7 +54,7 @@ div
     script(src=url_for(theme.cdn.swiper_js))
 
   if theme.post_ai.enable
-    script(src=url_for(theme.cdn.efu_ai))
+    script(src=url_for(theme.cdn.post_ai))
 
   if theme.capsule.enable || theme.music.enable || theme.says.enable
     script.
@@ -65,6 +65,7 @@ div
   if theme.post.covercolor.enable
     case theme.post.covercolor.mode
       when 'local'
+        script(src=url_for(theme.cdn.color_thief))
         script(src=url_for(theme.cdn.cover_local))
       when 'api'
         script.
@@ -73,6 +74,12 @@ div
             time: !{theme.post.covercolor.time}
           }
         script(src=url_for(theme.cdn.cover_api))
+      when 'ave'
+        script.
+          const coverColorConfig = {
+            time: !{theme.post.covercolor.time}
+          }
+        script(src=url_for(theme.cdn.cover_ave))
 
   if theme.loading.pace
     script(src=url_for(theme.cdn.pace_js))
@@ -105,10 +112,7 @@ div
       script.
         carousel_swiper()
     if theme.busuanzi && (theme.aside.siteinfo.uv || theme.aside.siteinfo.pv)
-      if theme.busuanzi_use === 0
-        script(defer pjax src=url_for(theme.cdn.busuanzi_js))
-      else
-        script(defer pjax src=url_for(theme.cdn.busuanzi_qj_js))
+      script(defer pjax src=url_for(theme.cdn.busuanzi_js))
 
 
 if theme.footer.randomlink
@@ -116,9 +120,6 @@ if theme.footer.randomlink
 
 // pjax
 != partial("includes/widgets/third-party/pjax", {}, {cache: true})
-
-// theme
-include ../body/mode
 
 // google adsense
 include ../body/gadsense

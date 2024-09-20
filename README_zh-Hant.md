@@ -20,7 +20,7 @@
 [![discord](https://img.shields.io/discord/1266610921942548553?style=for-the-badge&logo=discord&label=discord&logoColor=white)](https://discord.gg/HZXAnK4Sut)
 ![JetBrains](https://img.shields.io/badge/jetbrains-support-black?logo=jetbrains&style=for-the-badge)
 
-[文档](https://solitude.js.org/)丨[預覽](https://solitude.js.org/preview/zh/)
+[文档](https://solitude.js.org/)丨[預覽](https://solitude.js.org/preview/zh/)丨[作者](https://blog.everfu.cn/)
 
 </div>
 
@@ -43,7 +43,6 @@
 ## Todo
 
 - [x] 首页文章列表三列显示
-- [x] btns 外挂标签
 
 ## 應用
 
@@ -79,4 +78,6 @@
 
 ## 版權
 
-[MIT](./LICENSE) License &copy; 2023-至今 [Efu](https://github.com/everfu)
+[MIT](./LICENSE) License &copy; 2023-至今 [一小只托尼](https://github.com/everfu)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fvalor-x%2Fhexo-theme-solitude.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fvalor-x%2Fhexo-theme-solitude?ref=badge_large)

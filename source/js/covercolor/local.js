@@ -1,4 +1,9 @@
 const coverColor = () => {
+    const page_color = PAGE_CONFIG.color
+    if (page_color){
+        setThemeColors(page_color);
+        return;
+    }
     const path = document.getElementById("post-cover")?.src;
     if (path) {
         localColor(path);
@@ -179,3 +184,4 @@ function changeThemeColor(color) {
         t ? t.style.backgroundColor = color : console.error("document.body not found.")
     }
 }
+
