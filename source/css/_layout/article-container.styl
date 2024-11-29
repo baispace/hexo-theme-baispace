@@ -1,4 +1,4 @@
-.post-content
+.article-container
   overflow-wrap break-word
   +maxWidth768()
     overflow hidden
@@ -7,7 +7,7 @@
   .post &
     padding 1rem 2rem
     +maxWidth768()
-      padding .5rem
+      padding .5rem .5rem 1rem .5rem
 
   iframe
     border-radius 12px
@@ -66,7 +66,7 @@
     font-size .9rem
     line-height 1.7
     font-weight 400
-    margin 1rem 0
+    margin .5rem 0
     text-align left
     letter-spacing .6px
 
@@ -135,16 +135,14 @@
         padding 0.2em 0.2em 0.2em 1.4em
 
         &:before
-          margin 0
-          top .9em
-          width .2em
-          height .2em
-          border-radius 50%
+          top .78em
+          width .42em
+          height .42em
+          border-radius .42em
           background 0 0
+          border .21em solid var(--efu-lighttext)
           content ""
-          line-height .2em
-          border 0.21em solid var(--efu-lighttext)
-          background var(--efu-lighttext)
+          line-height .42em
 
   ol
     > li:before

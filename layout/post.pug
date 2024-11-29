@@ -5,7 +5,7 @@ block content
         #post
             if page.not_cover
                 include includes/widgets/post/postInfo
-            article.post-content#article-container
+            article.post-content.article-container
                 if theme.post_ai.enable && page.ai
                     include includes/widgets/post/post-ai
                 != page.content
@@ -13,7 +13,7 @@ block content
             .post-tools-right
                 .tag_share
                     .post-meta__tag-list
-                        each data in page.tags.data
+                        each data in page.tags.data || []
                             a(href=url_for(data.path)).post-meta__tags
                                 span.tags-punctuation
                                     i.solitude.fa-solid.fa-hashtag
