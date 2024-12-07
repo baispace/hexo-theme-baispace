@@ -5,14 +5,14 @@
 
 'use strict'
 
-const { version } = require('../../package.json')
+const {version} = require('../../package.json')
 const path = require('path')
 
 hexo.extend.filter.register('before_generate', () => {
     const themeConfig = hexo.theme.config
-    const { CDN } = themeConfig
+    const {CDN} = themeConfig
 
-    const thirdPartySrc = hexo.render.renderSync({ path: path.join(hexo.theme_dir, '/plugins.yml'), engine: 'yaml' })
+    const thirdPartySrc = hexo.render.renderSync({path: path.join(hexo.theme_dir, '/plugins.yml'), engine: 'yaml'})
     const internalSrc = {
         main: {
             name: 'hexo-theme-solitude',
@@ -59,14 +59,9 @@ hexo.extend.filter.register('before_generate', () => {
             file: 'js/right_menu.js',
             version
         },
-        translate_js:{
+        translate_js: {
             name: 'hexo-theme-solitude',
             file: 'js/tw_cn.js',
-            version
-        },
-        post_ai: {
-            name: 'hexo-theme-solitude',
-            file: 'js/third_party/post_ai.min.js',
             version
         },
         commentBarrage: {
@@ -97,7 +92,7 @@ hexo.extend.filter.register('before_generate', () => {
 
     const createCDNLink = (data, type, cond = '') => {
         Object.keys(data).forEach(key => {
-            let { name, version, file, other_name } = data[key]
+            let {name, version, file, other_name} = data[key]
             const cdnjs_name = other_name || name
             const cdnjs_file = file.replace(/^[lib|dist]*\/|browser\//g, '')
             const min_cdnjs_file = minFile(cdnjs_file)

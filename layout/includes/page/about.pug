@@ -7,5 +7,15 @@ if site.data.about
         include ../widgets/page/about/motto
         include ../widgets/page/about/hobbies
         include ../widgets/page/about/other
+
+.author-content
+        .create-site-post.author-content-item.single
+            .author-content-item-tips= page.tip
+            span.author-content-item-title= page.title
+            != page.content
+
         include ../widgets/page/about/tenyear
-        include ../widgets/page/about/award
+//-         include ../widgets/page/about/award
+
+
+
