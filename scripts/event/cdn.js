@@ -64,11 +64,6 @@ hexo.extend.filter.register('before_generate', () => {
             file: 'js/tw_cn.js',
             version
         },
-        post_ai: {
-            name: 'hexo-theme-solitude',
-            file: 'js/third_party/post_ai.min.js',
-            version
-        },
         commentBarrage: {
             name: 'hexo-theme-solitude',
             file: 'js/third_party/barrage.min.js',
