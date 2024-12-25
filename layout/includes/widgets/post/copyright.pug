@@ -2,7 +2,7 @@
 .post-copyright
     .post-copyright__author_group
         a.post-copyright__author_img(href=url_for(copyright.author.url))
-            img.post-copyright__author_img_front(src=page.avatar || copyright.author.img || theme.site.icon)
+            img.post-copyright__author_img_front(src=url_for(page.avatar || copyright.author.img || theme.site.icon))
         .post-copyright__author_name= page.author || config.title
         .post-copyright__author_desc= page.desc || config.subtitle
     .post-tools#post-tools
@@ -56,9 +56,15 @@
                                     #qrcode
                                     .reward-dec=_p('post.share.qrcode')
                             script(pjax).
-                                typeof QRCode === 'function' && new QRCode(document.getElementById("qrcode"), '!{path}');
+                                typeof QRCode === 'function' && new QRCode(document.getElementById("qrcode"), {
+                                    text: '!{path}',
+                                    correctLevel : QRCode.CorrectLevel.L
+                                });
                                 window.addEventListener('DOMContentLoaded', () => {
-                                    new QRCode(document.getElementById("qrcode"), '!{path}');
+                                    new QRCode(document.getElementById("qrcode"), {
+                                        text: '!{path}',
+                                        correctLevel : QRCode.CorrectLevel.L
+                                    });
                                 });
 
     if copyright.enable || page.copyright
