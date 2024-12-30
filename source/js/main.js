@@ -466,7 +466,7 @@ const sco = {
   changeTimeFormat(selector) {
     selector.forEach(item => {
       const timeVal = item.getAttribute('datetime');
-      item.textContent = utils.diffDate(timeVal, true);
+      item.textContent = utils.postDataCover(timeVal, true);
       item.style.display = 'inline';
     });
   },

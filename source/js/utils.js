@@ -173,6 +173,17 @@
             if (minuteCount >= 1) return `${minuteCount} ${time.min}`;
             return time.just;
         },
+        postDataCover: (d, more = false) => {
+            const dateNow = new Date();
+            const datePost = new Date(d);
+            const currentYear = dateNow.getFullYear();
+            const postYear = datePost.getFullYear();
+            // 当年显示 mm/dd，非今年显示 yyyy/mm/dd
+            const formattedDate = postYear === currentYear
+                ? `${String(datePost.getMonth() + 1).padStart(2, '0')}/${String(datePost.getDate()).padStart(2, '0')}`
+                : `${postYear}/${String(datePost.getMonth() + 1).padStart(2, '0')}/${String(datePost.getDate()).padStart(2, '0')}`;
+            return formattedDate;
+        },
         loadComment: (dom, callback) => {
             const observerItem = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting) {
