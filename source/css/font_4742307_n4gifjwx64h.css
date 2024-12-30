@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4742307 */
-  src: url('//at.alicdn.com/t/c/font_4742307_3frz2oa45lt.woff2?t=1735579702412') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4742307_3frz2oa45lt.woff?t=1735579702412') format('woff'),
-       url('//at.alicdn.com/t/c/font_4742307_3frz2oa45lt.ttf?t=1735579702412') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_4742307_vkr2lwdi8ic.woff2?t=1735580953388') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4742307_vkr2lwdi8ic.woff?t=1735580953388') format('woff'),
+       url('//at.alicdn.com/t/c/font_4742307_vkr2lwdi8ic.ttf?t=1735580953388') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zishutongji:before {
+  content: "\e694";
 }
 
 .icon-zishu:before {
@@ -43,10 +47,6 @@
 
 .icon-folder-close:before {
   content: "\e64d";
-}
-
-.icon-wodezhuangbei:before {
-  content: "\e66c";
 }
 
 .icon-guanyuwo:before {
