@@ -22,16 +22,16 @@
                     time(datetime=date_xml(page.date))= date_xml(page.date)
             if theme.post.meta.updated
                 span.post-meta-date(title=_p('post.updated') + ' ' + full_date(page.updated))
-                    i.post-meta-icon.solitude.fa-solid.fa-arrows-rotate
+                    i.post-meta-icon.solitude.iconfont.icon-xiugaishijian
                     time(datetime=date_xml(page.updated))= date_xml(page.updated)
             if theme.wordcount
                 span.post-meta-wordcount
                     if theme.post.meta.wordcount
-                        i.post-meta-icon.solitude.fa-solid.fa-file-word(title=_p('post.wordcount'))
+                        i.post-meta-icon.solitude.iconfont.icon-zishu(title=_p('post.wordcount'))
                         span.word-count= wordcount(page.content)
                     span.post-meta-separator
                     if theme.post.meta.readtime
-                        i.post-meta-icon.solitude.fa-solid.fa-clock(title=_p('post.minread'))
+                        i.post-meta-icon.solitude.iconfont.icon-shichang(title=_p('post.minread'))
                         span= min2read(page.content) + " min"
             if theme.post.meta.locate
                 span.post-meta-position(title=_p('post.ip') + page.locate)

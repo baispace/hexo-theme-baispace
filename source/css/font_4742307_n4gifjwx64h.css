@@ -80,3 +80,15 @@
 .icon-bikan:before {
   content: "\e77b";
 }
+
+.icon-zishu:before {
+  content: "\e632";
+}
+
+.icon-shichang:before {
+  content: "\e68c";
+}
+
+.icon-xiugaishijian:before {
+  content: "\e707";
+}
