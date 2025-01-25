@@ -150,7 +150,7 @@ const handleThemeChange = mode => {
 };
 
 const sco = {
-  lastSayHello: "",
+  lastWittyWord: "",
   wasPageHidden: false,
   musicPlaying: false,
   scrollTo(elementId) {
@@ -232,15 +232,15 @@ const sco = {
     if (!consoleHideAside) return;
     consoleHideAside.classList.toggle("on", document.documentElement.classList.contains("hide-aside"));
   },
-  changeSayHelloText() {
-    const greetings = GLOBAL_CONFIG.aside.sayhello2;
+  changeWittyWord() {
+    const greetings = GLOBAL_CONFIG.aside.witty_words;
     const greetingElement = document.getElementById("author-info__sayhi");
     let randomGreeting;
     do {
       randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
-    } while (randomGreeting === this.lastSayHello);
+    } while (randomGreeting === this.lastWittyWord);
     greetingElement.textContent = randomGreeting;
-    this.lastSayHello = randomGreeting;
+    this.lastWittyWord = randomGreeting;
   },
   switchDarkMode() {
     const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -315,7 +315,7 @@ const sco = {
     const el = document.getElementById('author-info__sayhi');
     if (el) {
       const hours = new Date().getHours();
-      const lang = GLOBAL_CONFIG.aside.sayhello;
+      const lang = GLOBAL_CONFIG.aside.state;
 
       const localData = getLocalData(['twikoo', 'WALINE_USER_META', 'WALINE_USER', '_v_Cache_Meta', 'ArtalkUser']);
 
@@ -330,7 +330,7 @@ const sco = {
       };
       const nick = localData ? (localData.nick || localData.display_name) : null;
 
-      const prefix = this.wasPageHidden ? GLOBAL_CONFIG.aside.sayhello3.back + nick : GLOBAL_CONFIG.aside.sayhello3.prefix + nick;
+      const prefix = this.wasPageHidden ? GLOBAL_CONFIG.aside.witty_comment.back + nick : GLOBAL_CONFIG.aside.witty_comment.prefix + nick;
 
       const greetings = [
         { start: 0, end: 5, text: nick ? prefix : lang.goodnight },
@@ -483,6 +483,19 @@ const sco = {
       }
     };
     utils.addEventListenerPjax(switchBtn, 'click', handleSwitchBtn);
+  },
+  homeTypeit() {
+    if(typeof(home_subtitle) === 'undefined') return;
+    const ty = new TypeIt(".banners-title-small", {
+        speed: 200,
+        waitUntilVisible: true,
+        loop: true,
+        lifeLike: true,
+    });
+    home_subtitle.forEach(item => {
+        ty.type(item).pause(500).delete(item);
+    });
+    ty.go();
   }
 };
 
@@ -691,7 +704,7 @@ class tabs {
     const { expire } = GLOBAL_CONFIG;
     if (!expire) return;
     const list = document.querySelectorAll('.post-meta-date time');
-    const post_date = list.length ? list[list.length - 1] : document.querySelector('.datatime');
+    const post_date = list.length ? list[list.length - 1] : document.querySelector('.datetime');
     if (!post_date) return;
     const ex = Math.ceil((new Date().getTime() - new Date(post_date.getAttribute('datetime')).getTime()) / 1000 / 60 / 60 / 24);
     if (expire.time > ex) return;
@@ -734,7 +747,7 @@ const forPostFn = () => {
 window.refreshFn = () => {
   const { is_home, is_page, page, is_post } = PAGE_CONFIG;
   const { runtime, lazyload, lightbox, randomlink, covercolor, post_ai, lure, expire } = GLOBAL_CONFIG;
-  const timeSelector = (is_home ? '.post-meta-date time' : is_post ? '.post-meta-date time' : '.datatime') + ', .webinfo-item time';
+  const timeSelector = (is_home ? '.post-meta-date time' : is_post ? '.post-meta-date time' : '.datetime') + ', .webinfo-item time';
   document.body.setAttribute('data-type', page);
   sco.changeTimeFormat(document.querySelectorAll(timeSelector));
   runtime && sco.addRuntime();
@@ -747,6 +760,7 @@ window.refreshFn = () => {
   initObserver();
   if (is_home) {
     showTodayCard();
+    sco.homeTypeit();
   }
   typeof updatePostsBasedOnComments === 'function' && updatePostsBasedOnComments();
   if (is_post || is_page) {

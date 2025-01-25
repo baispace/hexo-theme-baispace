@@ -3,5 +3,5 @@ header#page-header(class=is_post() && theme.post.default.top_cover && not_cover 
     if page.menu !== false
         include ./nav.pug
     if is_post()
-        if theme.post.default.top_cover && !page.not_cover
+        if !page.not_cover
             include ./widgets/post/postMeta.pug

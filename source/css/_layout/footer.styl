@@ -79,28 +79,27 @@
         background var(--efu-main)
         transform scale(1.1)
 
-    if hexo-config('footer.information.author')
-      .footer_mini_logo
-        width 50px
-        height 50px
-        margin 0 1rem
-        cursor pointer
-        transition cubic-bezier(0, 0, 0, 1.29) .5s
-        user-select none
-        border-radius 50px
-        overflow hidden
-        +maxWidth768()
-          display none
+    .footer_mini_logo
+      width 50px
+      height 50px
+      margin 0 1rem
+      cursor pointer
+      transition cubic-bezier(0, 0, 0, 1.29) .5s
+      user-select none
+      border-radius 50px
+      overflow hidden
+      +maxWidth768()
+        display none
 
-        &:hover
-          transform scale(1.2)
+      &:hover
+        transform scale(1.2)
 
   #st-footer
     display flex
     flex-direction row
     width 100%
     max-width 1200px
-    justify-content space-between
+    justify-content space-evenly
     flex-wrap wrap
     margin 1rem auto 3rem
     padding 0 1rem
@@ -239,7 +238,7 @@
       line-height 1
       display flex
       align-items center
-      gap 4px
+      gap .5rem
 
       .author-avatar
         width 20px
@@ -247,14 +246,11 @@
         min-height 20px
         min-width 20px
 
-      &.cc
-        margin-right 0
-
-        i
-          font-size 18px
-
-          &:not(:last-child)
-            margin-right .5rem
+      i
+        font-size 14px
+      
+      img
+        height 20px
 
       &:hover
         color var(--efu-theme)

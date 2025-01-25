@@ -9,8 +9,8 @@
 if hexo-config('recent_comments.enable') || (hexo-config('console.enable') && hexo-config('console.recentComment.enable'))
   @import "recentcomment.styl"
 
-if hexo-config('says.enable')
-  @import "says.styl"
+if hexo-config('brevity.enable')
+  @import "brevity.styl"
 
 if hexo-config('music.enable')
   @import "music.styl"
@@ -18,14 +18,11 @@ if hexo-config('music.enable')
 if hexo-config('google_adsense.enable')
   @import "google.styl"
 
-if $equipment
-  @import "equipment.styl"
+@import "equipment.styl"
 
-if $link
-  @import "links.styl"
+@import "links.styl"
 
-if $about
-  @import "_about/about"
+@import "_about/about"
 
 @import "other"
 
