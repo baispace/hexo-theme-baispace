@@ -38,7 +38,7 @@
                     i.post-meta-icon.solitude.fas.fa-location-dot
                     span= page.locate
             if theme.post.meta.pv && (theme.comment.use && theme.comment.pv || theme.busuanzi)
-                a.post-meta-pv(href=url_for(page.path), title=_p('post.pv'))
+                a.post-meta-pv(href=url_for(page.path), title=_p('post.pv'),style="pointer-events: none;")
                     i.post-meta-icon.solitude.fa-solid.fa-fire-flame-curved
                     if theme.comment.use && theme.comment.pv
                         case theme.comment.use[0]
