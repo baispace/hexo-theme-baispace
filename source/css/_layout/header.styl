@@ -45,57 +45,6 @@
     +minWidth768()
       font-size 2.85em
 
-  #site-subtitle
-    color var(--light-grey)
-    font-size 1.15em
-
-    +minWidth768()
-      font-size 1.72em
-
-  #site_social_icons
-    display none
-    margin 0 auto
-    width 15rem
-    text-align center
-
-    +maxWidth768()
-      display block
-
-    .social-icon
-      margin 0 .5rem
-      color var(--light-grey)
-      font-size 1.43em
-      cursor pointer
-
-  #scroll-down
-    position absolute
-    bottom 0
-    width 100%
-    cursor pointer
-    display none
-
-    .scroll-down-effects
-      animation: 1.5s ease 0s infinite normal none running scroll-down-effect
-      position relative
-      width 100%
-      color var(--light-grey)
-      font-size 30px
-
-  &.not-home-page
-    height 20rem
-
-    +maxWidth768()
-      height 14rem
-
-  #page-site-info
-    position absolute
-    top 10rem
-    padding 0 .5rem
-    width 100%
-
-    +maxWidth768()
-      top 7rem
-
   #nav
     z-index 100
     box-shadow none
@@ -338,15 +287,6 @@
       overflow hidden
       transition .3s
 
-#page-header #scroll-down .scroll-down-effects,
-#page-header #site-subtitle, #page-header #site-title
-  text-align center
-  line-height 1.5
-
-#page-header.nav-fixed > #nav,
-#page-header.not-top-img > #nav
-  box-shadow none
-
 #nav
   padding 0
   position absolute
@@ -406,11 +346,11 @@
         i, span, img
           opacity 0
 
-      i.fa-solid.fa-home
+      i.fas.fa-home
         +minWidth900()
           opacity: 1
 
-    i.fa-solid.fa-home
+    i.fas.fa-home
       opacity 0
       position absolute
       display flex
@@ -672,15 +612,15 @@
     transition .3s
     white-space nowrap
 
-.nav-fixed #nav-totop #percent,
-.page #nav-totop #percent
-  font-size 12px
-  border-radius 35px
-  display flex
-  justify-content center
-  align-items center
-  transition .3s
-  white-space nowrap
+#nav-totop #percent
+  .nav-fixed &, .page &
+    font-size 12px
+    border-radius 35px
+    display flex
+    justify-content center
+    align-items center
+    transition .3s
+    white-space nowrap
 
 if hexo-config('nav.group')
   .back-home-button
@@ -808,13 +748,13 @@ if hexo-config('nav.group')
         +minWidth900()
           align-items center
 
-      i.fa-solid.fa-home
+      i.fas.fa-home
         color var(--efu-white)
 
   .nav-fixed
     #nav
       #site-name
-        i.fa-solid.fa-home
+        i.fas.fa-home
           color var(--efu-card-bg)
 
   .not-top-img
@@ -906,9 +846,6 @@ if hexo-config('nav.group')
         +maxWidth768()
           color var(--efu-fontcolor)
 
-#weblogo
-  align-self center
-
 #menus
   & > div
     &.menus_items
@@ -925,14 +862,6 @@ if hexo-config('nav.group')
           if $language == 'en-US'
             letter-spacing normal
 
-#travellings_button
-  display inline
-  padding 0 .4rem
-  transition .3s
-
-  +maxWidth1200()
-    display none
-
 #page-name
   +minWidth900()
     align-items center
@@ -946,7 +875,6 @@ if hexo-config('nav.group')
     margin auto
     justify-content center
     animation-timing-function ease-out
-    -webkit-animation-timing-function ease-out
 
 #page-name-mask
   +minWidth900()

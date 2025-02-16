@@ -70,7 +70,8 @@ hometop:
   enable: false
   banner:
     title: 分享技术<br >与科技生活 # 大字
-    desc: 一个热爱生活的人 # 小字
+    desc:
+      一个热爱生活的人 # 小字
       # - 我只是一个普通的程序员
       # - 但我有一个不平凡的梦想
       # - 我希望能够改变世界
@@ -112,8 +113,8 @@ carousel: false
 # Aside
 # 侧边栏
 aside:
-  # Values: about (info card), newestPost (latest article), allInfo (website information), flip (official account QR code), newest_comment (latest comment)
-  # 值: about(信息卡), newestPost(最新文章), allInfo(网站信息), flip(官方账号二维码), newest_comment(最新评论)
+  # Values: about (info card), newestPost (latest article), allInfo (website information), newest_comment (latest comment)
+  # 值: about(信息卡), newestPost(最新文章), allInfo(网站信息), newest_comment(最新评论)
 
   # Sticky: Fixed position / noSticky: Not fixed position
   # Sticky: 固定位置 / noSticky: 不固定位置
@@ -158,16 +159,6 @@ aside:
   # --------------------------- end ---------------------------
 
   # --------------------------- start ---------------------------
-  # Sidebar QR code component
-  # 侧边栏二维码组件
-  flip:
-    favicon: # url (favicon)
-    face: # url (QR code)
-    backface: # url (QR code)
-    backcolor: "var(--efu-blue)" # Background color
-  # --------------------------- end ---------------------------
-
-  # --------------------------- start ---------------------------
   # article table of contents
   # 文章目录
   toc:
@@ -185,14 +176,6 @@ aside:
     # Highlighted tags
     highlight_list:
       # - Hexo
-  # --------------------------- end ---------------------------
-
-  # --------------------------- start ---------------------------
-  # Archive
-  # 归档
-  archive:
-    enable: false
-    type: "month" # month: by month / year: by year
   # --------------------------- end ---------------------------
 
   # --------------------------- start ---------------------------
@@ -269,6 +252,11 @@ post:
       # License link
       # 许可证链接
       licenurl: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans
+  # Article Local AI
+  # 文章本地AI
+  ai:
+    enable: false
+    modelName: 小七 GPT
   # Article meta information
   # 文章元信息
   meta:
@@ -510,7 +498,7 @@ console:
     tags: true
     # Archives
     # 归档
-    archive: true
+    archive: "month" # month: by month / year: by year
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -646,7 +634,7 @@ lazyload:
   # post, site
   field: site
   # 加载时替换图
-  placeholder: ''
+  placeholder: ""
   # 加载失败替换图
   errorimg: /img/error_load.avif
 # --------------------------- end ---------------------------
@@ -877,19 +865,19 @@ search:
   algolia:
     # hits:
     #   per_page: 6
-  
+
   # Local search
   local:
     preload: false
     CDN: # url: search.xml
-  
+
   # DocSearch
   # https://docsearch.algolia.com/
-  docsearch: 
-    appId: 
-    apiKey: 
-    indexName: 
-    option: 
+  docsearch:
+    appId:
+    apiKey:
+    indexName:
+    option:
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -951,24 +939,6 @@ busuanzi: false
 # 0: Original / 1: Custom
 # 0: 原版 / 1: 自定义版
 busuanzi_use: 0
-# --------------------------- end ---------------------------
-
-# --------------------------- start ---------------------------
-# This part is only supported in mainland China, and we will consider supporting ChatGPT Key in the future.
-# 该部分仅支持中国大陆
-tianli_talk:
-  enable: false
-  title: 智能客服与搜索 # title
-  key: # key
-  option:
-post_ai:
-  enable: false
-  modelName: GPT 4
-  key:
-  talk: # 我是 Efu 开发的摘要生成助理EfuGPT，EfuGPT在静态部署时进行摘要的撰写，并且在访客访问时通过EfuCorrection转译后的文本摘要实现工具。我在这里只负责已经生成的摘要显示，你无法与我直接沟通，但我可以回答一些预设的问题。
-  randomPost: false
-  report: https://solitude.js.org
-  tips: # 此内容根据文章生成，并经过人工审核，仅用于文章内容的解释与总结
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
