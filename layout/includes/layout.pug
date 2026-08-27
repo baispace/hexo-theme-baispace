@@ -1,58 +1,68 @@
+//- ===========================================
+//- 主布局模板 - 重构后的清晰结构
+//- ===========================================
+
+include ./mixins/common.pug
+
 - page.type = is_home() ? 'solitude' : page.type
+
 doctype html
 html(lang=config.language, data-theme="light")
     head
         include ./head.pug
+    
     body#body(data-type=page.type)
-        // universe
+        //- 背景特效
         if theme.display_mode.universe
-            canvas#universe
+            +conditionalWrapper(theme.display_mode.universe)
+                canvas#universe
 
-        // background img
-        if theme.background.enable
-            #global_bg
-
-        // loading
+        //- 全屏加载动画
         if theme.loading.fullpage
-            include ./loading.pug
+            +conditionalWrapper(theme.loading.fullpage)
+                include ./loading.pug
 
-        // console
-        if theme.console.enable
+        //- 控制台
+        +conditionalWrapper(theme.console.enable)
             include ./console.pug
 
-        // sidebar
+        //- 侧边栏
         include ./sidebar.pug
 
-        // keyboard
+        //- 键盘快捷键
         if theme.keyboard.enable
-            include ./keyboard.pug
+            +conditionalWrapper(theme.keyboard.enable)
+                include ./keyboard.pug
         
-        // righhtside
+        //- 右侧工具栏
         if theme.rightside.enable
-            include rightside
+            +conditionalWrapper(theme.rightside.enable)
+                include ./rightside.pug
 
-        #body-wrap(class = is_post() ? 'post' : 'page')
+        //- 主体内容区域
+        #body-wrap(class=is_post() ? 'post' : 'page')
             include ./header.pug
 
-            if(page.type !== '404')
+            if page.type !== '404'
                 block content
-
                 footer#footer
                     include ./footer.pug
             else
                 .error#body-wrap
                     block content
 
-        // right_menu
+        //- 右键菜单
         if theme.right_menu.enable
-            include rightmenu
+            +conditionalWrapper(theme.right_menu.enable)
+                include ./rightmenu.pug
 
-        // inject body
+        //- 注入的body内容
         include ./inject/body.pug
 
-        // search
+        //- 搜索功能
         include ./widgets/third-party/search/index.pug
 
-        // music
+        //- 音乐播放器
         if theme.capsule.enable
-            include ./widgets/third-party/music.pug
+            +conditionalWrapper(theme.capsule.enable)
+                include ./widgets/third-party/music.pug

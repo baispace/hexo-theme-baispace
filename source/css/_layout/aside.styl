@@ -201,6 +201,12 @@
             background var(--efu-black)
             color var(--efu-white)
 
+#body-wrap.post #aside-content .card-info
+  .description,
+  .bottom-group .name,
+  .bottom-group .desc
+    color var(--efu-white)
+
 .card-webinfo
   padding .5rem 1rem
 
@@ -342,7 +348,7 @@
 
 .sticky_layout
   position sticky
-  top calc(60px + var(--gap))
+  top 60px
   transition top 0s
   display flex
   flex-direction column
@@ -499,7 +505,7 @@ if hexo-config('comment.newest_comment.enable')
   font-size 14px
   padding 4px 0
   border var(--style-border-always)
-  box-shadow var(--heo-shadow-border)
+  box-shadow var(--efu-shadow-border)
   cursor pointer
 
   &:hover

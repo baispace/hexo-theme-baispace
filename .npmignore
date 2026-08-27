@@ -1,0 +1,9 @@
+.git/
+.github/
+node_modules/
+.DS_Store
+.vscode/
+.idea/
+*.log
+CHANGELOG.md
+package-lock.json

@@ -5,7 +5,7 @@
 #
 # Guide: https://solitude.js.org
 # You can get more detailed help from the guide
-# 指南：https://solitude.js.org/zh
+# 指南：https://solitude.js.org/cn
 # 你可以从指南中获取更详细的帮助
 #
 # sponsor: https://ko-fi.com/everfu
@@ -21,7 +21,7 @@ site:
   name:
     class: text # text / i_class / img
     custom: Solitude # Solitude / fas fa-ghost / /img/pwa/favicon.ico
-  icon: /img/pwa/favicon.png # Site icon / 网站图标
+  icon: /img/logo.png # Site icon / 网站图标
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -38,17 +38,17 @@ nav:
   # 菜单
   menu:
     # 首页: / # name: link
-    # 文库: # name
-    #   全部文章: /archives/ || fas fa-folder-closed # item name: link || icon
-    #   全部分类: /categories/ || fas fa-clone
-    #   全部标签: /tags/ || fas fa-tags
+    # 文章: # name
+    #   归档: /archives/ || fas fa-folder-closed # item name: link || icon
+    #   分类: /categories/ || fas fa-clone
+    #   标签: /tags/ || fas fa-tags
     # 友链:
     #   朋友圈: /moments/ || fas fa-wifi
     #   友情链接: /links/ || fas fa-user-group
     #   宝藏博主: javascript:travelling() || fas fa-gift
-    # 关于:
-    #   我的装备: /equipment/ || fas fa-laptop
-    #   在线工具: /tlink/ || fas fa-toolbox
+    # 我的:
+    #   关于: /about/ || fas fa-user
+    #   装备: /kit/ || fas fa-laptop
     #   音乐馆: /music/ || fas fa-music
 
   # Right button
@@ -96,17 +96,15 @@ hometop:
       #   color: "#df5b40"
   group:
     # 热门: /tags/Fire/ || fas fa-fire || linear-gradient(to right,#f65,#ffbf37)
+  # Recommended items are sorted by order; items without order keep their declared order.
+  # 推荐内容按 order 升序排列；未设置 order 时保持声明顺序。
   recommendList:
-    enable: true
-    sup: 置顶
-    title: Solitude 官方文档
-    url: https://solitude.js.org/
-    img: /img/default.avif
-    color: "none"
-
-# Article Top Banner
-# 文章推荐轮播图
-carousel: false
+    # - order: 1
+    #   sup: 置顶
+    #   title: Solitude 官方文档
+    #   url: https://solitude.js.org/
+    #   img: /img/default.avif
+    #   color: "none"
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -119,14 +117,14 @@ aside:
   # Sticky: Fixed position / noSticky: Not fixed position
   # Sticky: 固定位置 / noSticky: 不固定位置
   home: # on the homepage
-    noSticky: "about"
-    Sticky: "allInfo"
+    noSticky: 'about'
+    Sticky: 'allInfo'
   post: # on the article page
-    noSticky: "about"
-    Sticky: "newestPost"
+    noSticky: 'about'
+    Sticky: 'newestPost'
   page: # on the page
-    noSticky: "about"
-    Sticky: "newestPost,allInfo"
+    noSticky: 'about'
+    Sticky: 'newestPost,allInfo'
   # 菜单栏位置(0: 左 1: 右)
   position: 1 # Sidebar positioning(0: left 1: right)
 
@@ -200,7 +198,7 @@ aside:
     runtimeenable: true
     # Format: yyyy-MM-dd hh-mm-ss
     # 格式: yyyy-MM-dd hh-mm-ss
-    runtime: "2023-04-20 00:00:00"
+    runtime: '2023-04-20 00:00:00'
   # --------------------------- end ---------------------------
 # --------------------------- end ---------------------------
 
@@ -220,6 +218,10 @@ page:
   # list: Sort List / 1: Follow HomeList
   # list: 排序列表 / 1: 跟随首页列表
   archives: 0
+  # Load friend links from JSON when the total exceeds this value
+  # 友链总数超过此值时通过 JSON 异步加载
+  links:
+    async_threshold: 200
   # Default value
   # 默认值
   default:
@@ -237,7 +239,7 @@ post:
     # Default image when no cover is set
     # 未设置封面时的默认图片
     cover:
-      # -  # 默认图片 / default cover
+      # - /img/default.avif # 默认图片 / default cover
     # Location
     # 位置
     locate: China
@@ -333,8 +335,11 @@ post:
 # --------------------------- start ---------------------------
 # Custom Theme Color
 theme_color:
-  dark: "#ffc848" # dark
-  light: "#425AEF" # light
+  dark: '#ffc848' # dark
+  light: '#425AEF' # light
+  nav_hover_text:
+    dark: '#1b1c20' # Navigation hover text in dark mode
+    light: '#ffffff' # Navigation hover text in light mode
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -357,20 +362,10 @@ font:
   code-font-size: 16px
   # Global font
   # 全局字体
-  font-family: "PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif"
+  font-family: 'PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif'
   # Code font
   # 代码字体
   code-font-family: '"monospace", monospace'
-# --------------------------- end ---------------------------
-
-# --------------------------- start ---------------------------
-# Background
-# 背景图片
-background:
-  enable: false
-  opacity: .2
-  dark: https://i.pinimg.com/originals/d8/b3/9d/d8b39d12b653810db452c437211aeb2e.png
-  light: https://i.pinimg.com/originals/93/57/38/935738ed9657b296c2ef0ebd2151eb66.jpg
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -390,8 +385,8 @@ expire:
   enable: false
   time: 30 # days
   position: top # top / bottom
-  text_prev: "This article expired "
-  text_next: " day ago, if the content does not match, please contact the webmaster to update it."
+  text_prev: 'This article expired '
+  text_next: ' day ago, if the content does not match, please contact the webmaster to update it.'
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -432,7 +427,7 @@ right_menu:
   # 自定义列表
   custom_list:
     # - name: 随机文章
-    #   click: toRandomPost()
+    #   click: Solitude.randomPost()
     #   id: menu-randomPost
     #   class:
     #   icon: fas fa-tower-broadcast
@@ -498,7 +493,7 @@ console:
     tags: true
     # Archives
     # 归档
-    archive: "month" # month: by month / year: by year
+    archive: 'month' # month: by month / year: by year
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -513,7 +508,6 @@ translate:
 # 右下角悬停导航栏
 rightside:
   enable: false
-  percent: false
   hide:
     enable: false
     translate: false
@@ -587,7 +581,7 @@ errorpage:
 # can only use NetEase Cloud Music, QQ Music and other music platforms supported by the mainland China region,
 # the subsequent consideration of the use of JSON files to store music information and customize the implementation of the third-party API does not depend on the page.
 # Music Page
-meting_api: "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r" # Custom API
+meting_api: 'https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r' # Custom API
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -628,14 +622,11 @@ keyboard:
 
 # --------------------------- start ---------------------------
 # Lazyload
-# 图片懒加载
+# 懒加载
 lazyload:
   enable: false
-  # post, site
   field: site
-  # 加载时替换图
-  placeholder: ""
-  # 加载失败替换图
+  placeholder: ''
   errorimg: /img/error_load.avif
 # --------------------------- end ---------------------------
 
@@ -648,7 +639,7 @@ loading:
   fullpage: false
   # Loading icon, default is siteicon
   # 加载图标，不写默认siteicon
-  favicon: /img/favicon.png
+  favicon: /img/logo.png
   # Pace loading
   # Pace 加载
   pace: true
@@ -744,11 +735,9 @@ verify_site:
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
-# CSS Prefix
-# CSS 前缀
-# When turned on, it will automatically prefix the CSS (to get better browser support), but this will increase the size of the CSS file.
-# 开启后会自动给 CSS 加前缀（以获得更好的浏览器支持），但这会增加 CSS 文件的大小。
-css_prefix: false
+# Legacy CSS Prefix
+# CSS前缀配置
+css_prefix: true
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -772,7 +761,7 @@ extends:
 pwa:
   enable: false
   manifest: /manifest.json # manifest.json
-  theme_color: "#006a73" # Theme color
+  theme_color: '#006a73' # Theme color
   mask_icon: /img/pwa/favicon.png # Mask icon
   apple_touch_icon: /img/pwa/favicon.png # Apple touch icon
   bookmark_icon: /img/pwa/favicon.png # Bookmark icon
@@ -815,19 +804,19 @@ comment:
     enable: true
     storage: .5 # 缓存时间 1: 1天 / .5 : 半天 / Cache time 1: 1 day .5 : half a day
     limit: 5 # 评论数 / Number of comments
-# Twikoo: https://solitude.js.org/comment/twikoo
+# Twikoo: https://solitude.js.org/configuration/comment/twikoo
 twikoo: # https://twikoo.js.org/
   envId: # url: https://twikoo.sondy.top/
   region: # Environment locale, default is ap-shanghai, Tencent cloud environment fill ap-shanghai or ap-guangzhou; Vercel environment do not fill the.
   style: true # Use custom styles when turned on
   accessToken: # AccessToken
   option: # twikoo option
-# Waline: https://solitude.js.org/comment/waline
+# Waline: https://solitude.js.org/configuration/comment/waline
 waline: # https://waline.js.org/
   envId: # url: https://waline.wzsco.top
   pageview: false # Whether to enable page access statistics
   option: # waline configuration item
-# Valine: https://solitude.js.org/comment/valine
+# Valine: https://solitude.js.org/configuration/comment/valine
 valine:
   appId: # leancloud application app id
   appKey: # leancloud application app key
@@ -836,13 +825,12 @@ valine:
   visitor: false
   style: true # Use custom styles when turned on
   option: # options list
-# Artalk: https://solitude.js.org/comment/artalk
-# Artalk: https://solitude.js.org/zh/comment/artalk
+# Artalk: https://solitude.js.org/configuration/comment/artalk
 artalk:
   server: # server url
   site: # site name
   option: # options
-# Giscus: https://solitude.js.org/comment/giscus
+# Giscus: https://solitude.js.org/configuration/comment/giscus
 giscus:
   repo: # GitHub repository name
   repo_id: # GitHub repository ID
@@ -913,7 +901,7 @@ envelope:
 
 # --------------------------- start ---------------------------
 # Brevity Page
-# 即可短文
+# 即刻短文
 brevity:
   enable: false
   home_mini: false
@@ -969,12 +957,19 @@ google_adsense:
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
-# 非必要请勿修改
+# CDN Configuration
+# CDN配置
 CDN:
+  # CDN providers configuration
+  # CDN提供商配置
   internal: local # local / cdnjs / jsdelivr / unpkg / custom
   third_party: custom # cdnjs / jsdelivr / unpkg / custom
   version: true # 是否使用版本号
-  custom_format: https://fastly.jsdelivr.net/npm/${name}@${version}/${min_file} # 自定义格式
+
+  # Custom format for CDN URLs
+  # CDN URL 自定义格式
+  custom_format: https://cdn.jsdelivr.net/npm/${name}@${version}/${min_file}
+
   # 直接覆盖默认 CDN 链接（优先级最高）
   options:
     # algolia_search:

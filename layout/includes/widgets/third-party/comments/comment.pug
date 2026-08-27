@@ -1,46 +1,44 @@
-- const {use,count} = theme.comment
+//- ===========================================
+//- 评论组件
+//- ===========================================
 
+include ../../../mixins/common.pug
+
+- const { use, count } = theme.comment
+
+//- 评论切换器组件
+mixin commentSwitcher()
+  if use.length > 1
+    .comment-switch
+      span.first= use[0]
+      span#switch-btn
+      span.second= use[1]
+
+//- 评论标题组件
+mixin commentHeader()
+  .comment-head
+    .comment-headline
+      +icon('fas fa-comment')
+      span= ' ' + _p('comment.title')
+      
+      //- 评论计数
+      if count && is_post()
+        span.count
+          = ' ('
+          each name in use
+            +commentCount(name)
+          | )
+    
+    //- 评论系统切换器
+    +commentSwitcher()
+
+//- 评论容器组件
+mixin commentContainer()
+  .comment-wrap
+    each name in use
+      +commentSystem(name)
+
+//- 主评论组件
 #post-comment
-    .comment-head
-        .comment-headline
-            i.solitude.fas.fa-comment
-            span=' ' + _p('comment.title')
-            if count && is_post()
-                span.count
-                    = ' ('
-                    each name in use
-                        case name
-                            when "Twikoo"
-                                span.twikoo-count
-                                    i.solitude.fas.fa-spinner.fa-spin
-                            when "Waline"
-                                span.waline-comment-count
-                                    i.solitude.fas.fa-spinner.fa-spin
-                            when "Valine"
-                                span.valine-comment-count(data-xid=url_for(page.path) itemprop="commentCount")
-                                    i.solitude.fas.fa-spinner.fa-spin
-                            when "Artalk"
-                                span.artalk-count
-                            when "Giscus"
-                                span.giscus-count
-                    | )
-
-        if use.length > 1
-            .comment-switch
-                span.first=use[0]
-                span#switch-btn
-                span.second=use[1]
-
-    .comment-wrap
-        each name in use
-            case name
-                when 'Valine'
-                    #vcomment.vcomment
-                when 'Twikoo'
-                    #twikoo-wrap
-                when 'Waline'
-                    #waline-wrap
-                when 'Artalk'
-                    #artalk-wrap
-                when 'Giscus'
-                    #giscus-wrap
+  +commentHeader()
+  +commentContainer()

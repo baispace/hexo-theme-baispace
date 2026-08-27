@@ -57,6 +57,10 @@
   --hlscrollbar-bg #121212
   --gap .5rem
   --radius 12px
+  --efu-music var(--efu-main)
+  --efu-dock-width 300px
+  --efu-dock-right 60px
+  --efu-dock-bottom 20px
 
 body
   position relative
@@ -378,9 +382,12 @@ i.solitude
     padding 0
 
   &#content-inner
+    position relative
     max-width 1400px
     flex-grow 1
-    padding-top .5rem
+
+    /.post &
+      margin-top 16px
 
   &.hide-aside
     > div:first-child
@@ -396,18 +403,11 @@ i.solitude
       width 100%
 
   > #post, #category, #tag, #archive
-    box-shadow var(--efu-shadow-border)
-    padding 1rem 2rem
-    border-radius 12px
-    border var(--style-border)
     align-self flex-start
     animation slide-in .6s .1s backwards
     position relative
     if hexo-config('aside.position') == 0
       order 2
-
-    +minWidth768()
-      background var(--efu-card-bg)
 
     +maxWidth768()
       box-shadow none
@@ -440,18 +440,28 @@ if hexo-config('memorial.enable')
     -o-filter grayscale(100%)
     filter grayscale(100%)
 
-if hexo-config('background.enable')
-  #global_bg
-    position fixed
-    z-index 999
-    opacity hexo-config('background.opacity')
-    width 100%
-    height 100%
-    background-image url(hexo-config('background.light'))
-    background-size cover
-    background-position center
-    pointer-events none
-    background-repeat no-repeat
+.custom-tooltip
+  display none
 
-    [data-theme=dark] &
-      background-image url(hexo-config('background.dark'))
+@media (hover: hover)
+  .custom-tooltip
+    display flex
+    position fixed
+    z-index 9999
+    max-width 200px
+    padding 8px 12px
+    color var(--efu-fontcolor)
+    background var(--efu-maskbgdeep)
+    border var(--style-border-always)
+    border-radius 12px
+    box-shadow var(--efu-shadow-border)
+    font-size 14px
+    font-weight 400
+    line-height 1.3
+    text-align center
+    white-space pre-wrap
+    overflow-wrap break-word
+    pointer-events none
+    opacity 0
+    backdrop-filter none
+    transition opacity .15s, backdrop-filter 0s

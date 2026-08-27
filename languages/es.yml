@@ -1,0 +1,274 @@
+framework_by: "Framework: "
+theme_by: "Tema: "
+
+more: Más
+star: También te puede gustar
+random: Aleatorio
+upload: "Publicado: "
+totalk: Escribe tu comentario; las líneas en blanco están permitidas.
+loading: Cargando...
+day: " días"
+hot-tip: Popular
+
+theme:
+  dark: Modo oscuro activado
+  light: Modo claro activado
+
+copy:
+  success: Copiado
+  error: Error al copiar
+
+copy_copyright:
+  author: Autor
+  link: Enlace
+  source: Fuente
+  info: El copyright pertenece al autor. Para reimpresiones comerciales, por favor contacta al autor para autorización. Para reimpresiones no comerciales, indica la fuente.
+
+time:
+  day: " días atrás"
+  hour: " horas atrás"
+  just: "justo ahora"
+  min: " minutos atrás"
+  month: " meses atrás"
+
+page:
+  tag: Etiquetas
+  category: Categorías
+  tags: Todas las etiquetas
+  categories: Todas las categorías
+  archives: Archivos
+  404: Página no encontrada
+
+home:
+  home: Destacados
+  bbtime:
+    text: Ver todas las notas
+  sticky: Fijado
+  new: Nuevo
+  read: No leído
+  recommend: Elegido
+  recommendmore: Más
+  archives: Artículos
+
+post:
+  reprint: Republicado
+  original: Original
+  cc: Publicado bajo la licencia ${cc}.
+  posted: Publicado
+  updated: Actualizado
+  wordcount: Palabras
+  minread: Lectura
+  ip: Ubicación del autor
+  pv: Visitas
+  min: min
+  comment: Comentarios
+  copyright:
+    reprint: Este artículo es una reproducción o traducción. Los derechos pertenecen al autor original; contáctalo antes de republicarlo.
+    original: Este artículo original usa la
+    original_end: licencia. Al reproducirlo, cita a
+  share:
+    qq: Compartir en QQ
+    weibo: Compartir en Weibo
+    telegram: Compartir en Telegram
+    twitter: Compartir en Twitter
+    linkedin: Compartir en LinkedIn
+    facebook: Compartir en Facebook
+    link: Compartir enlace
+    qrcode: Escanear para leer
+    whatsapp: Compartir en WhatsApp
+  ai:
+    title: Resumen del artículo
+  nav:
+    next: Siguiente
+    prev: Anterior
+
+nav:
+  site_name_title: Volver al inicio
+  backtop: Volver arriba
+  travellings: Viajando - Enlaces de amigos
+  search: Buscar
+  randompost: Publicación aleatoria
+  console: Consola
+
+tooltip:
+  home: Ver todos los artículos recomendados
+  archives: Ver todos los artículos
+  category: "Ver artículos en ${name}"
+  categories: Ver todas las categorías
+  category_next: Desplazar categorías
+
+award:
+  thanks: Gracias
+  tipping: Patrocinar
+  title: Lista de agradecimientos
+
+search:
+  empty: Sin resultados para ${query}
+  hit: ${hits} resultados en ${time} ms
+  placeholder: Buscar por palabra clave
+  count: Total <b>${count}</b> resultados.
+  load: Cargando...
+  close: Cerrar
+  suggestions: Búsquedas populares
+
+head:
+  noscript: Activa JavaScript para ver este sitio
+
+aside:
+  postcount: "Artículos:"
+  pv: "PV:"
+  uv: "UV:"
+  runtime: "Días en línea:"
+  updatetime: "Actualizado:"
+  wordcount: "Palabras:"
+  toc: Contenido
+  tagmore: Ver todo
+  avatar: Avatar
+  hello: "Cuánto tiempo sin verte, "
+  back: Bienvenido de nuevo,
+  sticker: Sticker de ánimo
+  newpost: Artículos recientes
+  newcomment: Comentarios recientes
+  card:
+    posts: "Publicaciones:"
+    tags: "Etiquetas:"
+    categories: "Categorías:"
+
+console:
+  comment_tip: Interacción
+  comment_title: Comentarios recientes
+  tag_tip: Etiquetas
+  tag_title: Explorar temas
+  switch_darkmode: Tema
+  switch_hideAside: Barra lateral
+  switch_keyboard: Atajos
+  switch_music: Música
+  archive_unit: Artículos
+  archive_all: Todos los artículos
+  recent_comment_more: Más comentarios
+  newest_comment:
+    image: Imagen
+    link: Enlace
+    code: Código
+    emoji: Emoji
+    empty: Sin comentarios...
+
+sidebar:
+  function: Función
+  darkmode: Modo de visualización
+  siteinfo: Información del sitio
+
+footer:
+  description: Artículo de ${title}
+  learnmore: Saber más
+  randomlink: Enlaces
+  rss: Suscribirse
+  theme: Tema
+
+cookies:
+  title: Aviso de privacidad
+  tip: Consulta cómo protegemos tu privacidad
+  privacy: Cómo este sitio protege tu privacidad
+
+music:
+  hit: Pausado
+
+404:
+  button: Volver al inicio
+
+link:
+  loading: Cargando enlaces de amigos...
+  error: No se pueden cargar los enlaces. Inténtalo de nuevo.
+  retry: Reintentar
+  default_sort: Orden predeterminado
+  random_sort: Orden aleatorio
+  sort_label: Cambiar orden
+  scroll_left: Desplazar a la izquierda
+  scroll_right: Desplazar a la derecha
+  banner:
+    toComment: Solicitar
+    random: Enlace aleatorio
+  random: "Visita un enlace amigo al azar. No se garantizan su seguridad ni disponibilidad. Selección: ⌈ ${name} ⌋"
+  to: Visitar
+
+keyboard:
+  title: Atajos del blog
+
+newest_comment:
+  error: No se pueden obtener comentarios, por favor revisa la configuración.
+  zero: Sin comentarios.
+
+comment:
+  title: " Comentario"
+
+commentBarrage:
+  title: Popular
+
+f12: El modo desarrollador está activado. Respeta la GPL.
+
+right_menu:
+  copy: Copiar texto
+  paste: Pegar
+  comment: Citar
+  new: Nueva pestaña
+  link: Copiar enlace
+  img: Copiar imagen
+  downloadImg: Descargar
+  search: Buscar
+  dark: Claro
+  light: Oscuro
+  chs_to_cht: A tradicional
+  cht_to_chs: A simplificado
+  converted_to_cht: Chino tradicional activado
+  converted_to_chs: Chino simplificado activado
+  img_error: Esta imagen no puede ser copiada o descargada.
+  ctrl_original_menu: Mantén Ctrl + clic derecho para abrir el menú contextual del navegador
+  barrage:
+    open: Mostrar comentarios
+    close: Ocultar comentarios
+  music:
+    start: Reproducir
+    stop: Pausar
+    back: Anterior
+    forward: Siguiente
+    copyMusicName: Copiar título
+
+pagination:
+  prev: Ant.
+  next: Sig.
+  to: Ir a la página
+
+about:
+  other:
+    oneself:
+      map_title: Vivo en
+      info_title1: Nacimiento
+      info_title2: Ocupación
+    tj:
+      tip: Datos
+      title: Estadísticas de acceso
+      post_tip: "Fuente:"
+  personalities:
+    tip1: En
+    tip2: "Saber más:"
+
+message:
+  close: Ocultar comentarios
+  open: Mostrar comentarios
+
+essay:
+  tip0: "- Todas las notas visibles -"
+  tip1: "- Últimas #{count} notas -"
+  link: "Enlace"
+
+rightside:
+  show:
+    gear: Herramientas
+    toc: Contenido
+    comment: Comentarios
+    top: Arriba
+    barrage: En vivo
+  hide:
+    translate: Conversión de chino
+    mode: Tema
+    aside: Barra lateral

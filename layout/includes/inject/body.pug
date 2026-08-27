@@ -1,4 +1,9 @@
 - page.type = is_post() ? 'post' : page.type
+- const bodyFriendLinksGroups = site.data.links && Array.isArray(site.data.links.links) ? site.data.links.links : []
+- const bodyFriendLinksTotal = bodyFriendLinksGroups.reduce((count, group) => count + (Array.isArray(group.link_list) ? group.link_list.length : 0), 0)
+- const configuredBodyFriendLinksThreshold = Number(theme.page && theme.page.links && theme.page.links.async_threshold)
+- const bodyFriendLinksThreshold = Number.isInteger(configuredBodyFriendLinksThreshold) && configuredBodyFriendLinksThreshold >= 0 ? configuredBodyFriendLinksThreshold : 200
+- const bodyFriendLinksAsync = bodyFriendLinksTotal > bodyFriendLinksThreshold
 
 mixin katex
   if theme.katex.copytex
@@ -6,35 +11,37 @@ mixin katex
       script.
         (() => {
           document.querySelectorAll('.article-container span.katex-display').forEach(item => {
-            utils.wrap(item, 'div', {class: 'katex-wrap'})
+            Solitude.wrap(item, 'div', {class: 'katex-wrap'})
           })
         })();
 
 div
+  // Critical scripts loaded synchronously
   script(src=url_for(theme.cdn.utils))
-  script(src=url_for(theme.cdn.main))
-  script(src=url_for(theme.cdn.waterfall))
+  
+  // Non-critical scripts loaded asynchronously
+  script(defer src=url_for(theme.cdn.waterfall))
   script(src=url_for(theme.cdn.pjax))
 
+  // Feature-specific scripts loaded asynchronously
   if theme.post.share.enable && theme.post.share.list && theme.post.share.list.includes('qrcode')
-    script(src=url_for(theme.cdn.qrcode))
+    script(async src=url_for(theme.cdn.qrcode))
 
   if theme.mermaid
-    script(src=url_for(theme.cdn.mermaid_js))
+    script(defer src=url_for(theme.cdn.mermaid_js))
 
   if theme.chart
-    script(src=url_for(theme.cdn.chart_js))
+    script(defer src=url_for(theme.cdn.chart_js))
 
   if theme.typeit || typeof theme.hometop.banner.desc === 'object'
-    script(src=url_for(theme.cdn.typeit_js))
+    script(defer src=url_for(theme.cdn.typeit_js))
 
   if theme.display_mode.universe
-    script(src=url_for(theme.cdn.universe_js))
+    script(defer src=url_for(theme.cdn.universe_js))
     script.
-      dark()
-
-  if theme.translate.enable
-    script(src=url_for(theme.cdn.translate_js))
+      document.addEventListener('DOMContentLoaded', () => {
+        if (typeof dark === 'function') dark();
+      });
 
   if theme.katex && theme.katex.enable
     if theme.katex.per_page && (is_post() || is_page())
@@ -42,9 +49,10 @@ div
     else if page.katex
       +katex
 
+  // UI enhancement scripts
   if theme.lazyload.enable
     script(src=url_for(theme.cdn.lazyload))
-  script(src=url_for(theme.cdn.snackbar))
+  script(defer src=url_for(theme.cdn.snackbar))
   if theme.lightbox
     if theme.mediumZoom
       script(src=url_for(theme.cdn.medium_zoom))
@@ -53,43 +61,26 @@ div
   if (theme.brevity.home_mini && theme.brevity.enable)
     script(src=url_for(theme.cdn.swiper_js))
 
-  if theme.post.ai.enable
-    script(src=url_for(theme.cdn.post_ai))
-
+  // Music player scripts
   if theme.capsule.enable || theme.music.enable || theme.brevity.enable && theme.brevity.music
     script.
       var meting_api = '!{theme.meting_api}';
-    script(src=url_for(theme.cdn.aplayer_js))
-    script(src=url_for(theme.cdn.meting_js))
+    script(defer src=url_for(theme.cdn.aplayer_js))
+    script(defer src=url_for(theme.cdn.meting_js))
 
-  if theme.post.covercolor.enable
-    case theme.post.covercolor.mode
-      when 'local'
-        script(src=url_for(theme.cdn.color_thief))
-        script(src=url_for(theme.cdn.cover_local))
-      when 'api'
-        script.
-          const coverColorConfig = {
-            api: '!{theme.post.covercolor.api}',
-            time: !{theme.post.covercolor.time}
-          }
-        script(src=url_for(theme.cdn.cover_api))
-      when 'ave'
-        script.
-          const coverColorConfig = {
-            time: !{theme.post.covercolor.time}
-          }
-        script(src=url_for(theme.cdn.cover_ave))
+  // Cover color processing scripts
+  if theme.post.covercolor.enable && theme.post.covercolor.mode === 'local'
+    script(defer src=url_for(theme.cdn.color_thief))
 
   if theme.loading.pace
     include ../mixins/pace.pug
 
+  // Search functionality
   if theme.search.enable && theme.search.type === "algolia"
-    script(src=url_for(theme.cdn.instantsearch))
-    script(src=url_for(theme.cdn.algolia_search))
+    script(defer src=url_for(theme.cdn.instantsearch))
 
-  if theme.right_menu.enable
-    script(src=url_for(theme.cdn.right_menu_js))
+  // Main module dynamically imports enabled first-party features.
+  script(type="module" src=url_for(theme.cdn.main))
 
   if theme.extends.body
     each item in theme.extends.body
@@ -98,12 +89,12 @@ div
   .js-pjax
     if is_home() && theme.brevity.enable && theme.brevity.home_mini
       script.
-        sco.initbbtalk()
+        Solitude.initbbtalk()
     if page.type === 'brevity' && theme.brevity.enable
       script.
-        GLOBAL_CONFIG.lightbox && utils.lightbox(document.querySelectorAll(".bber-content-img img"));
-        sco.changeTimeFormat(document.querySelectorAll('.bber-info-time time'))
-    if comment_js
+        Solitude.config.lightbox && Solitude.lightbox(document.querySelectorAll(".bber-content-img img"));
+        Solitude.changeTimeFormat(document.querySelectorAll('.bber-info-time time'))
+    if page.comment
       include ../widgets/third-party/comments/js
     if theme.mermaid
       script.
@@ -113,8 +104,6 @@ div
       script(defer pjax src=url_for(theme.cdn.busuanzi_js))
 
 
-if theme.footer.randomlink
-  include ../widgets/randomlink.pug
 
 // pjax
 != partial("includes/widgets/third-party/pjax", {}, {cache: true})

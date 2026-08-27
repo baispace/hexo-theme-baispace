@@ -1,10 +1,28 @@
 {
   "name": "hexo-theme-solitude",
-  "version": "3.0.15",
+  "version": "4.0.0",
   "description": "A beautiful, powerful, and efficient Hexo theme developed by everfu.",
   "main": "package.json",
+  "files": [
+    "layout",
+    "languages",
+    "source",
+    "scripts",
+    "_config.yml",
+    "plugins.yml",
+    "package.json",
+    "README.md",
+    "README_en-US.md",
+    "README_es-ES.md",
+    "README_zh-Hant.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "semantic-release",
+    "release:dry": "semantic-release --dry-run",
+    "commitlint": "commitlint --edit",
+    "prepare": "husky"
   },
   "keywords": [
     "hexo",
@@ -12,16 +30,39 @@
     "solitude",
     "Card UI Design",
     "@everfu",
-    "everly",
+    "everfu",
+    "\u4f0d\u62fe\u67d2",
     "hexo-theme-solitude"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/everfu/hexo-theme-solitude"
   },
+  "devDependencies": {
+    "semantic-release": "^25.0.0",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/release-notes-generator": "^14.0.0",
+    "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/npm": "^13.0.0",
+    "@semantic-release/github": "^12.0.0",
+    "@semantic-release/git": "^11.0.0",
+    "@commitlint/cli": "^21.0.0",
+    "@commitlint/config-conventional": "^21.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^17.0.0",
+    "prettier": "^3.0.0"
+  },
   "dependencies": {
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.0"
+  },
+  "lint-staged": {
+    "*.{js,json,md,yml,yaml,css}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=18"
   },
   "bugs": {
     "url": "https://github.com/everfu/hexo-theme-solitude/issues",

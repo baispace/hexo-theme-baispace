@@ -115,3 +115,19 @@ if hexo-config('post.ai.enable')
         opacity 1
         transform translateY(0)
     
+#post
+  border var(--style-border)
+  border-radius var(--radius)
+  box-shadow var(--efu-shadow-border)
+  background var(--efu-card-bg)
+
+.post-radius-bottom
+  border-radius var(--radius) var(--radius) 0 0
+  position absolute
+  bottom 0
+  left 0
+  right 0
+  height 10px
+  background var(--efu-background)
+  z-index 2
+  pointer-events none

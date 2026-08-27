@@ -12,7 +12,7 @@ if theme.brevity.enable
                                     span.bber_nick= config.author
                                     time.datetime.bber_date(datetime=moment(item.date).format())
                                 if theme.comment.use && item.content
-                                    a.bber-reply.goComment(onclick=`sco.toTalk('${item.content}')`)
+                                    a.bber-reply.goComment(data-solitude-action="toTalk" data-solitude-value=item.content)
                                         i.solitude.fas.fa-comment
 
                         #bber-content
@@ -20,7 +20,10 @@ if theme.brevity.enable
                             if item.image
                                 .bber-content-img
                                     each img in item.image
-                                        img(src=img alt="image")
+                                        if typeof img === 'string'
+                                            img(src=img, alt=item.content || "图片暂无描述")
+                                        else
+                                            img(src=img.url, alt=(img.alt || item.content || "图片暂无描述"))
 
                         if item.aplayer
                             .bber-music
@@ -49,7 +52,7 @@ if theme.brevity.enable
                                             i.solitude.fas.fa-link
                                             = _p('essay.link')
                                 if theme.comment.use && item.content
-                                    a.bber-reply(onclick=`sco.toTalk('${item.content}')`)
+                                    a.bber-reply(data-solitude-action="toTalk" data-solitude-value=item.content)
                                         i.solitude.fas.fa-comment
             #bber-tips
                 if theme.brevity.strip === -1

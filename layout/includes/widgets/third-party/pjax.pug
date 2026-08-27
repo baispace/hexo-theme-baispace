@@ -2,24 +2,33 @@
 - const select = ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff', '.rs_show', '.rs_hide']
 
 script.
-    const pjax = new Pjax({
-        elements: 'a:not([target="_blank"])',
-        selectors: !{JSON.stringify(select)},
-        cacheBust: false,
-        analytics: !{google_adsense},
-        scrollRestoration: false
-    })
+    function initPjax() {
+        if (typeof Pjax === 'undefined') {
+            setTimeout(initPjax, 100);
+            return;
+        }
 
-    document.querySelectorAll('script[data-pjax]').forEach(item => {
-        const newScript = document.createElement('script')
-        const content = item.text || item.textContent || item.innerHTML || ""
-        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-        newScript.appendChild(document.createTextNode(content))
-        item.parentNode.replaceChild(newScript, item)
-    })
+        const instance = new Pjax({
+            elements: 'a:not([target="_blank"])',
+            selectors: !{JSON.stringify(select)},
+            cacheBust: false,
+            analytics: !{google_adsense},
+            scrollRestoration: false
+        })
 
-    document.addEventListener('pjax:complete', () => {
-        window.refreshFn()
+        // Pjax dispatches synthetic resize/scroll events on window after every selector switch.
+        // Use a Node target so injected listeners that call event.target.contains() remain compatible.
+        instance.onSwitch = function () {
+            this.state.numPendingSwitches--
+
+            if (this.state.numPendingSwitches === 0) {
+                document.dispatchEvent(new Event('resize', { bubbles: true }))
+                document.dispatchEvent(new Event('scroll', { bubbles: true }))
+                this.afterAllSwitches()
+            }
+        }
+
+        Solitude.pjax = instance;
 
         document.querySelectorAll('script[data-pjax]').forEach(item => {
             const newScript = document.createElement('script')
@@ -29,12 +38,41 @@ script.
             item.parentNode.replaceChild(newScript, item)
         })
 
-        GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+        document.addEventListener('pjax:send', () => {
+            document.dispatchEvent(new CustomEvent('solitude:beforeNavigate'))
+            Solitude.disposePage?.()
+            Object.values(window.globalFn?.pjax || {}).forEach(dispose => dispose())
+            if (window.globalFn) window.globalFn.pjax = {}
+        })
 
-    })
+        document.addEventListener('pjax:complete', async () => {
+            await Solitude.refresh()
 
-    document.addEventListener('pjax:error', (e) => {
-        if (e.request.status === 404) {
-            pjax.loadUrl('/404.html')
-        }
-    })
+            document.querySelectorAll('script[data-pjax]').forEach(item => {
+                const newScript = document.createElement('script')
+                const content = item.text || item.textContent || item.innerHTML || ""
+                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+                newScript.appendChild(document.createTextNode(content))
+                item.parentNode.replaceChild(newScript, item)
+            })
+
+            Solitude.config.lazyload.enable && window.lazyLoadInstance?.update()
+            document.dispatchEvent(new CustomEvent('solitude:afterNavigate', {
+                detail: {page: Solitude.page}
+            }))
+
+        })
+
+        document.addEventListener('pjax:error', (e) => {
+            if (e.request.status === 404) {
+                Solitude.navigate('/404.html')
+            }
+        })
+    }
+
+    // 初始化 Pjax
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPjax);
+    } else {
+        initPjax();
+    }
